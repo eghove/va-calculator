@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const ratesSchema = new Schema({
   // The Rate Change Effective Date
-  effectiveDate: {type: Date, required: true},
+  effectiveDate: {type: String, required: true},
   // The claimantType (i.e. Veteran, Surviving Spouse, Surviving Child)
   claimantType: {type: String, required: true},
   // the base rate without any dependents
