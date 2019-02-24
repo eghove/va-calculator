@@ -3,6 +3,8 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
+// pull in the estimator route
+const estimatorRoute = require("./routes/apiRoutes/estimatorAPI");
 
 
 
@@ -15,6 +17,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define routes here
+// the Estimator API route
+app.use("/api/estimate", estimatorRoute);
 
 
 // Connect to the Mongo DB
