@@ -224,6 +224,57 @@ const ratesSeed = [
     moreDepsRate: 2198
   },
 
+  // === SURVIVNG CHILD ALONE RATES ====
+  {
+    // 12/01/2018 RATES
+    effectiveDate: "2018-12-01",
+    // The claimantType (i.e. Veteran, Surviving Spouse, Surviving Child)
+    claimantType: "Surviving Child",
+    // the base rate without any dependents
+    baseRate: 2313,
+    // !NOT ELIGIBLE FOR ADDITIONAL ALLOWANCES
+  },
+
+  {
+    // 12/01/2017 RATES
+    effectiveDate: "2017-12-01",
+    // The claimantType (i.e. Veteran, Surviving Spouse, Surviving Child)
+    claimantType: "Surviving Child",
+    // the base rate without any dependents
+    baseRate: 2250,
+    // !NOT ELIGIBLE FOR ADDITIONAL ALLOWANCES
+  },
+
+  {
+    // 12/01/2016 RATES
+    effectiveDate: "2016-12-01",
+    // The claimantType (i.e. Veteran, Surviving Spouse, Surviving Child)
+    claimantType: "Surviving Child",
+    // the base rate without any dependents
+    baseRate: 2205,
+    // !NOT ELIGIBLE FOR ADDITIONAL ALLOWANCES
+  },
+
+  {
+    // 12/01/2015 RATES (Same as 12/01/2014, no COLA)
+    effectiveDate: "2015-12-01",
+    // The claimantType (i.e. Veteran, Surviving Spouse, Surviving Child)
+    claimantType: "Surviving Child",
+    // the base rate without any dependents
+    baseRate: 2198,
+    // !NOT ELIGIBLE FOR ADDITIONAL ALLOWANCES
+  },
+
+  {
+    // 12/01/2014 RATES 
+    effectiveDate: "2014-12-01",
+    // The claimantType (i.e. Veteran, Surviving Spouse, Surviving Child)
+    claimantType: "Surviving Child",
+    // the base rate without any dependents
+    baseRate: 2198,
+    // !NOT ELIGIBLE FOR ADDITIONAL ALLOWANCES
+  }
+
 
 ]
 
