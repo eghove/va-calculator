@@ -6,8 +6,6 @@ const db = require("../models");
 module.exports = {
   // method that returns the appropriate rate based on year and claimant type
   findRate: function(req, res) {
-   
-    
     db.Rates
       .find( {
         effectiveDate: req.params.effectiveDate, 

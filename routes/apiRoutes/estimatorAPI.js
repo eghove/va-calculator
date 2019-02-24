@@ -5,6 +5,7 @@ const router = require("express").Router();
 const estimatorController = require("../../controllers/estimatorController");
 
 // matches with "/api/estimate"
+// takes in the effective date paramater, followed by the claimant date paramater to return the correct rate information.
 router.route("/:effectiveDate/:claimantType")
   // get calls the method that returns the appropriate rates for the estimator
   .get(estimatorController.findRate);
