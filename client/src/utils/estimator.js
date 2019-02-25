@@ -87,6 +87,8 @@ const estimator = {
   }
 }
 
+module.exports = estimator;
+
 // THE TESTING FUNCTIONS
 // console.log(estimator.calcAnnSingInc(a));
 // console.log(estimator.calcAnnSingExp(a));
