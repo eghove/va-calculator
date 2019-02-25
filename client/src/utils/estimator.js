@@ -36,7 +36,17 @@ const estimator = {
       temp = temp + this.calcAnnSingInc(array[i])
     }
     return temp;
-  }
+  },
+  
+  // method that calculates the total medical expenses from an array of monthly medical expense amounts
+  totalMeds: function(array) {
+    let temp = 0;
+    for (let i = 0; i < array.length; i++) {
+      temp = temp + this.calcAnnSingExp(array[i])
+    }
+    // round it down to the nearest dollar here
+    return parseInt(temp);
+  },
 }
 
 // THE TESTING FUNCTIONS
@@ -44,3 +54,4 @@ const estimator = {
 // console.log(estimator.calcAnnSingExp(a));
 // console.log(estimator.totalIncome([105.10, 25.62, 15.00]));
 // console.log(estimator.totalIncome([1999.87, 14.99, 13.17]));
+// console.log(estimator.totalMeds([104.90, 99.9, 0]));
