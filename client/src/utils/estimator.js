@@ -1,7 +1,8 @@
 // the logic for the estimator
 
 // for testing
-var a = process.argv[2];
+// var a = process.argv[2];
+
 
 const estimator = {
   // method that takes in the baseRate, calculates the medical expense deduction.
@@ -26,9 +27,20 @@ const estimator = {
     let annualAmt = parseFloat(monthlyAmount) * 12;
     // round down to two decimal places and return the value
     return annualAmt = Math.round(annualAmt * 100) / 100;
+  },
+
+  // method that calculates the total income from an array of monthly income amounts
+  totalIncome: function(array) {
+    let temp = 0;
+    for (let i = 0; i < array.length; i++) {
+      temp = temp + this.calcAnnSingInc(array[i])
+    }
+    return temp;
   }
 }
 
-// THE TESTING FUNCTION
+// THE TESTING FUNCTIONS
 // console.log(estimator.calcAnnSingInc(a));
-console.log(estimator.calcAnnSingExp(a));
+// console.log(estimator.calcAnnSingExp(a));
+// console.log(estimator.totalIncome([105.10, 25.62, 15.00]));
+// console.log(estimator.totalIncome([1999.87, 14.99, 13.17]));
