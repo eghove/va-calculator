@@ -33,7 +33,7 @@ const estimator = {
   totalIncome: function(array) {
     let temp = 0;
     for (let i = 0; i < array.length; i++) {
-      temp = temp + this.calcAnnSingInc(array[i])
+      temp = temp + estimator.calcAnnSingInc(array[i])
     }
     return temp;
   },
@@ -42,11 +42,35 @@ const estimator = {
   totalMeds: function(array) {
     let temp = 0;
     for (let i = 0; i < array.length; i++) {
-      temp = temp + this.calcAnnSingExp(array[i])
+      temp = temp + estimator.calcAnnSingExp(array[i])
     }
     // round it down to the nearest dollar here
     return parseInt(temp);
   },
+
+  // method that calculates the income for VA purposes, takes in an array of monthly income values; an array of medical expense values, and the appropriate baserate.
+  calcIVAP: function (incomeArray, expensesArray, baseRate) {
+    let totalMeds = estimator.totalMeds(expensesArray);
+    // if total meds don't exceed the the deductible, it doesn't help the claimant so totalMeds effectively 0
+    if (totalMeds <= estimator.calcMedDed(baseRate)) {
+      totalMeds = 0;
+    } else {
+      totalMeds = totalMeds - estimator.calcMedDed(baseRate);
+    };
+    // console.log("Total Meds are: " + totalMeds);
+
+    // determine total income
+    let totalIncome = estimator.totalIncome(incomeArray)
+    // console.log("Total income is: "+ totalIncome);
+
+    let IVAP = totalIncome - totalMeds;
+    // income for VA purposes cannot be negative so it will return zero; otherwise return the correct IVAP
+    if (IVAP < 0) {
+      return 0
+    } else {
+      return IVAP;
+    }
+  }
 }
 
 // THE TESTING FUNCTIONS
@@ -55,3 +79,4 @@ const estimator = {
 // console.log(estimator.totalIncome([105.10, 25.62, 15.00]));
 // console.log(estimator.totalIncome([1999.87, 14.99, 13.17]));
 // console.log(estimator.totalMeds([104.90, 99.9, 0]));
+console.log(estimator.calcIVAP([101.90, 99.10], [3000], 15000));
