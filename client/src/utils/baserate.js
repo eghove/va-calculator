@@ -70,8 +70,9 @@ const baseRate = {
       return rates.baseRate;
     } else return "Error";
   }
-
 }
+
+module.exports = baseRate;
 
 // TESTING OBJECT (reflects how it comes back from the API request)
 // var rates = {
