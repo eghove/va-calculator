@@ -126,3 +126,35 @@ var rates2 = {
 // console.log(baseRate.baseRateforMeds("John", 6, rates));
 
 // TESTING FUNCTIONS FOR baseRate.calculateMAPR
+// console.log(baseRate.calculateMAPR("Surviving Spouse", 0, "None", rates));
+// console.log(baseRate.calculateMAPR("Surviving Spouse", 1, "None", rates));
+// console.log(baseRate.calculateMAPR("Surviving Spouse", 3, "None", rates));
+// console.log(baseRate.calculateMAPR("Surviving Spouse", 0, "Housebound", rates));
+// console.log(baseRate.calculateMAPR("Surviving Spouse", 1, "Housebound", rates));
+// console.log(baseRate.calculateMAPR("Surviving Spouse", 3, "Housebound", rates));
+// console.log(baseRate.calculateMAPR("Surviving Spouse", 0, "Aid and Attendance", rates));
+// console.log(baseRate.calculateMAPR("Surviving Spouse", 1, "Aid and Attendance", rates));
+// console.log(baseRate.calculateMAPR("Surviving Spouse", 3, "Aid and Attendance", rates));
+// 
+// console.log(baseRate.calculateMAPR("Veteran", 0, "None", rates1));
+// console.log(baseRate.calculateMAPR("Veteran", 1, "None", rates1));
+// console.log(baseRate.calculateMAPR("Veteran", 3, "None", rates1));
+// console.log(baseRate.calculateMAPR("Veteran", 0, "Housebound", rates1));
+// console.log(baseRate.calculateMAPR("Veteran", 1, "Housebound", rates1));
+// console.log(baseRate.calculateMAPR("Veteran", 3, "Housebound", rates1));
+// console.log(baseRate.calculateMAPR("Veteran", 0, "Aid and Attendance", rates1));
+// console.log(baseRate.calculateMAPR("Veteran", 1, "Aid and Attendance", rates1));
+// console.log(baseRate.calculateMAPR("Veteran", 3, "Aid and Attendance", rates1));
+// 
+// console.log(baseRate.calculateMAPR("Surviving Child", 0, "None", rates2));
+// console.log(baseRate.calculateMAPR("Surviving Child", 1, "None", rates2));
+// console.log(baseRate.calculateMAPR("Surviving Child", 3, "None", rates2));
+// console.log(baseRate.calculateMAPR("Surviving Child", 0, "Housebound", rates2));
+// console.log(baseRate.calculateMAPR("Surviving Child", 1, "Housebound", rates2));
+// console.log(baseRate.calculateMAPR("Surviving Child", 3, "Housebound", rates2));
+// console.log(baseRate.calculateMAPR("Surviving Child", 0, "Aid and Attendance", rates2));
+// console.log(baseRate.calculateMAPR("Surviving Child", 1, "Aid and Attendance", rates2));
+// console.log(baseRate.calculateMAPR("Surviving Child", 3, "Aid and Attendance", rates2));
+
+
+// console.log(baseRate.calculateMAPR("Frank", 0, "None", rates2));
