@@ -74,39 +74,39 @@ const baseRate = {
 }
 
 // TESTING OBJECT (reflects how it comes back from the API request)
-var rates = {
-  "_id": "5c71e9d5c0e4cd1db024f38c",
-  "effectiveDate": "2016-12-01",
-  "claimantType": "Surviving Spouse",
-  "baseRate": 8656,
-  "hbRate": 10580,
-  "aaRate": 13836,
-  "baseRateAddOne": 11330,
-  "hbRateAddOne": 13249,
-  "aaRateAddOne": 16506,
-  "moreDepsRate": 2205
-}
+// var rates = {
+//   "_id": "5c71e9d5c0e4cd1db024f38c",
+//   "effectiveDate": "2016-12-01",
+//   "claimantType": "Surviving Spouse",
+//   "baseRate": 8656,
+//   "hbRate": 10580,
+//   "aaRate": 13836,
+//   "baseRateAddOne": 11330,
+//   "hbRateAddOne": 13249,
+//   "aaRateAddOne": 16506,
+//   "moreDepsRate": 2205
+// }
 
 
-var rates1 = {
-  "_id": "5c71e9d5c0e4cd1db024f387",
-  "effectiveDate": "2016-12-01",
-  "claimantType": "Veteran",
-  "baseRate": 12907,
-  "hbRate": 15773,
-  "aaRate": 21531,
-  "baseRateAddOne": 16902,
-  "hbRateAddOne": 19770,
-  "aaRateAddOne": 25525,
-  "moreDepsRate": 2205
-}
+// var rates1 = {
+//   "_id": "5c71e9d5c0e4cd1db024f387",
+//   "effectiveDate": "2016-12-01",
+//   "claimantType": "Veteran",
+//   "baseRate": 12907,
+//   "hbRate": 15773,
+//   "aaRate": 21531,
+//   "baseRateAddOne": 16902,
+//   "hbRateAddOne": 19770,
+//   "aaRateAddOne": 25525,
+//   "moreDepsRate": 2205
+// }
 
-var rates2 = {
-  "_id": "5c71e9d5c0e4cd1db024f391",
-  "effectiveDate": "2016-12-01",
-  "claimantType": "Surviving Child",
-  "baseRate": 2205
-}
+// var rates2 = {
+//   "_id": "5c71e9d5c0e4cd1db024f391",
+//   "effectiveDate": "2016-12-01",
+//   "claimantType": "Surviving Child",
+//   "baseRate": 2205
+// }
 
 //   // TESTING FUNCTIONS for baseRate.baseRateforMeds
 // console.log(baseRate.baseRateforMeds("Surviving Spouse", 0, rates));
