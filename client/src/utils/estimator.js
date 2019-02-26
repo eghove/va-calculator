@@ -1,5 +1,4 @@
 // the logic for the estimator
-
 // for testing
 // var a = process.argv[2];
 
