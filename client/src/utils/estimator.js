@@ -5,7 +5,7 @@
 
 
 const estimator = {
-  // method that takes in the baseRate, calculates the medical expense deduction.
+  // method that takes in the baseMedRate, calculates the medical expense deduction.
   calcMedDed: function (baseMedRate) {
     // the medical expense deduction is 5% of the baserate, rounded down to the nearest dollar.
     let medicalDeduction = parseInt(baseMedRate) * .05;
@@ -48,7 +48,7 @@ const estimator = {
     return parseInt(temp);
   },
 
-  // method that calculates the income for VA purposes, takes in an array of monthly income values; an array of medical expense values, and the appropriate baserate.
+  // method that calculates the income for VA purposes, takes in an array of monthly income values; an array of medical expense values, the baseMedRate, and the appropriate baserate.
   IVAP: function (incomeArray, expensesArray, baseMedRate) {
     let totalMeds = estimator.totalMeds(expensesArray);
     // if total meds don't exceed the the deductible, it doesn't help the claimant so totalMeds effectively 0
