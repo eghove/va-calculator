@@ -6,9 +6,9 @@
 
 const estimator = {
   // method that takes in the baseRate, calculates the medical expense deduction.
-  calcMedDed: function (baseRate) {
+  calcMedDed: function (baseMedRate) {
     // the medical expense deduction is 5% of the baserate, rounded down to the nearest dollar.
-    let medicalDeduction = parseInt(baseRate) * .05;
+    let medicalDeduction = parseInt(baseMedRate) * .05;
     // rounds it down to the nearest whole dollar and returns the value.
     return medicalDeduction = parseInt(medicalDeduction);
   },
@@ -49,13 +49,13 @@ const estimator = {
   },
 
   // method that calculates the income for VA purposes, takes in an array of monthly income values; an array of medical expense values, and the appropriate baserate.
-  IVAP: function (incomeArray, expensesArray, baseRate) {
+  IVAP: function (incomeArray, expensesArray, baseMedRate) {
     let totalMeds = estimator.totalMeds(expensesArray);
     // if total meds don't exceed the the deductible, it doesn't help the claimant so totalMeds effectively 0
-    if (totalMeds <= estimator.calcMedDed(baseRate)) {
+    if (totalMeds <= estimator.calcMedDed(baseMedRate)) {
       totalMeds = 0;
     } else {
-      totalMeds = totalMeds - estimator.calcMedDed(baseRate);
+      totalMeds = totalMeds - estimator.calcMedDed(baseMedRate);
     };
     // console.log("Total Meds are: " + totalMeds);
 
@@ -72,13 +72,13 @@ const estimator = {
     }
   },
   // method that determines the monthly pension rate
-  monthlyRate: function (incomeArray, expensesArray, baseRate) {
+  monthlyRate: function (incomeArray, expensesArray, baseRate, baseMedRate) {
     // if the IVAP is greater or equal to the baseRate, they won't get anything
-    if (estimator.IVAP(incomeArray, expensesArray, baseRate) >= baseRate) {
+    if (estimator.IVAP(incomeArray, expensesArray, baseMedRate) >= baseRate) {
       return 0;
     } else {
       // caclulate the annual rate
-      let annualRate = baseRate - estimator.IVAP(incomeArray, expensesArray, baseRate)
+      let annualRate = baseRate - estimator.IVAP(incomeArray, expensesArray, baseMedRate)
       // divide the annual benefit rate by 12 and round down to nearest whole dollar
       let monthlyRate = parseInt(annualRate / 12);
       // return the value
@@ -90,11 +90,4 @@ const estimator = {
 module.exports = estimator;
 
 // THE TESTING FUNCTIONS
-// console.log(estimator.calcAnnSingInc(a));
-// console.log(estimator.calcAnnSingExp(a));
-// console.log(estimator.totalIncome([105.10, 25.62, 15.00]));
-// console.log(estimator.totalIncome([1999.87, 14.99, 13.17]));
-// console.log(estimator.totalMeds([104.90, 99.9, 0]));
-// console.log(estimator.IVAP([101.90, 99.10], [3000], 15000));
-// console.log(estimator.IVAP([2000.90, 99.10], [100], 15000));
-// console.log(estimator.monthlyRate([2000.90, 99.10], [100], 15000));
+// console.log(estimator.monthlyRate([100.90, 91.90], [94.90], 18000, 15000));
