@@ -449,7 +449,7 @@ import Button from '@material-ui/core/Button';
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="depPrivateMedIns"
-                        label="Private Medical Ins (Dependence)"
+                        label="Private Medical Ins (Dependents)"
                         value={this.state.depPrivMedIns}
                         onChange={this.handleChange}
                         InputProps ={{
@@ -491,7 +491,7 @@ import Button from '@material-ui/core/Button';
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="selfOtherExpense1"
-                        label="Other Expense 1 (Dependence)"
+                        label="Other Expense 1 (Dependents)"
                         value={this.state.depOtherEx1}
                         onChange={this.handleChange}
                         InputProps ={{
@@ -533,7 +533,7 @@ import Button from '@material-ui/core/Button';
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="selfOtherExpense2"
-                        label="Other Expense 2 (Dependence)"
+                        label="Other Expense 2 (Dependents)"
                         value={this.state.depOtherEx2}
                         onChange={this.handleChange}
                         InputProps ={{
