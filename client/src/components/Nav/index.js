@@ -1,16 +1,48 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
+import './nav.css';
+// import MenuIcon from '@material-ui/icons/Menu';
 
-function Nav() {
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+};
+
+function Nav (props) {
+  const { classes } = props;
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">">
-      <a className="navbar-brand" href="/">
-        VA Pension Estimator
-      </a>
-      <li className="nav-item justify-content-end">
-      <a className="nav-link" href="#">Log Out</a>
-      </li>
-    </nav>
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">VA Pension Estimator
+          </IconButton>
+          <Typography variant="h6" color="inherit" className={classes.grow}>
+            
+          </Typography>
+          <Button color="inherit">Logoff</Button>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }
 
-export default Nav;
+Nav.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+
+export default withStyles(styles)(Nav);
