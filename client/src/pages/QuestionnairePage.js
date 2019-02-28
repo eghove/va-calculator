@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import './QuestionnairePage.css';
 
 
-function App () {
+function QuestionnairePage () {
     return (
     <Grid container spacing = {24}>
         <Grid item xs={3}></Grid>    
@@ -19,4 +19,4 @@ function App () {
 }
 
 
-export default App;
+export default QuestionnairePage;
