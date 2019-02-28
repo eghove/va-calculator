@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Navbar, Button } from 'react-bootstrap';
-import './App.css';
+import './Login.css';
 
-class App extends Component {
+class Login extends Component {
   goTo(route) {
     this.props.history.replace(`/${route}`)
   }
@@ -71,4 +71,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Login;
