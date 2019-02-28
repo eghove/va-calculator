@@ -2,18 +2,15 @@
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-  import React from 'react';
-  import ReactDOM from 'react-dom';
-  import PropTypes from 'prop-types';
-  import { withStyles } from '@material-ui/core/styles';
-//   import Input from '@material-ui/core/Input';
-//   import OutlinedInput from '@material-ui/core/OutlinedInput';
-//   import FilledInput from '@material-ui/core/FilledInput';
-  import InputLabel from '@material-ui/core/InputLabel';
-  import MenuItem from '@material-ui/core/MenuItem';
-//   import FormHelperText from '@material-ui/core/FormHelperText';
-  import FormControl from '@material-ui/core/FormControl';
-  import Select from '@material-ui/core/Select';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
   
   const styles = theme => ({
     root: {
@@ -73,9 +70,11 @@ import Grid from '@material-ui/core/Grid';
         <form className={classes.root} autoComplete="off" >
 
         <Grid container spacing = {24}>
+ 
+        <Grid item xs={12} id='surveyTitle' ><h4>Survey Questions</h4></Grid>
+        
           <Grid item xs={12}>
                 <FormControl className={classes.formControl} fullWidth ={true} >
-                  {/* <InputLabel htmlFor="age-simple">I am applying as a ...</InputLabel> */}
                   <InputLabel
                   >
                     I am applying as a ...
@@ -99,7 +98,6 @@ import Grid from '@material-ui/core/Grid';
 
           <Grid item xs={12}>
                 <FormControl className={classes.formControl} fullWidth ={true}>
-                  {/* <InputLabel htmlFor="age-simple"> I am applying for one of the following additional benefits…</InputLabel> */}
                   <InputLabel
                     ref={ref => {
                       this.InputLabelRef = ref;
@@ -127,7 +125,7 @@ import Grid from '@material-ui/core/Grid';
 
           <Grid item xs={12}>
                   <FormControl className={classes.formControl} fullWidth ={true}>
-                    {/* <InputLabel htmlFor="age-simple"> I am applying for one of the following additional benefits…</InputLabel> */}
+              
                     <InputLabel
                       ref={ref => {
                         this.InputLabelRef = ref;
@@ -157,7 +155,7 @@ import Grid from '@material-ui/core/Grid';
                   </FormControl>
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={12}>
             <FormControl className={classes.formControl} fullWidth ={true}>
                     {/* <InputLabel htmlFor="age-simple"> I am applying for one of the following additional benefits…</InputLabel> */}
                     <InputLabel
@@ -193,16 +191,15 @@ import Grid from '@material-ui/core/Grid';
             <Grid item xs={12}></Grid>
 
 
-            <Grid container spacing = {8}>
+            <Grid container spacing = {24}>
 
-                    <Grid item xs={1}></Grid>
-                    <Grid item xs={3}><h4>Monthly Income</h4></Grid>
-                    <Grid item xs={2}>You</Grid>
-                    <Grid item xs={2}>Dependent(s)</Grid>
-                    <Grid item xs={4}></Grid>  
+                    <Grid item xs={4}><h4>Monthly Income</h4></Grid>
+                    <Grid item xs={4}>You</Grid>
+                    <Grid item xs={4}>Dependent(s)</Grid>
+
 
                     <Grid item xs={4}></Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={4}>
                           <FormControl className={classes.formControl} fullWidth ={true}>
                           <TextField
                             id="SSIncome"
@@ -223,7 +220,7 @@ import Grid from '@material-ui/core/Grid';
                             </FormControl>
                       </Grid>
     
-                    <Grid item xs={2}>
+                    <Grid item xs={4}>
                             <FormControl className={classes.formControl} fullWidth ={true}>
                             <TextField
                               id="depSSIncome"
@@ -242,12 +239,11 @@ import Grid from '@material-ui/core/Grid';
                             />
                         </FormControl>
                     </Grid>
-                    <Grid item xs={4}></Grid>
 
 
 
                     <Grid item xs={4}></Grid>  
-                    <Grid item xs={2}>
+                    <Grid item xs={4}>
                             <FormControl className={classes.formControl} fullWidth ={true}>
                             <TextField
                               id="selfRetireIncome"
@@ -267,7 +263,7 @@ import Grid from '@material-ui/core/Grid';
                     </FormControl>
                       </Grid>
     
-                    <Grid item xs={2}>
+                    <Grid item xs={4}>
                             <FormControl className={classes.formControl} fullWidth ={true}>
                           <TextField
                             id="depnRetireIncome"
@@ -286,12 +282,10 @@ import Grid from '@material-ui/core/Grid';
                           />
                           </FormControl>
                     </Grid>     
-                    <Grid item xs={4}></Grid>
-
 
 
                     <Grid item xs={4}></Grid>
-                    <Grid item xs={2}> 
+                    <Grid item xs={4}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfOtherIncome1"
@@ -311,7 +305,7 @@ import Grid from '@material-ui/core/Grid';
                       </FormControl>
                       </Grid>
 
-                      <Grid item xs={2}>
+                      <Grid item xs={4}>
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="depOtherIncome1"
@@ -330,12 +324,11 @@ import Grid from '@material-ui/core/Grid';
                       />
                         </FormControl>
                         </Grid>
-                        <Grid item xs={4}></Grid>
             
 
 
-                        <Grid item xs={4}></Grid>
-                    <Grid item xs={2}> 
+                      <Grid item xs={4}></Grid>
+                    <Grid item xs={4}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfOtherIncome2"
@@ -355,7 +348,7 @@ import Grid from '@material-ui/core/Grid';
                       </FormControl>
                       </Grid>
 
-                      <Grid item xs={2}>
+                      <Grid item xs={4}>
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="depOtherIncome2"
@@ -381,16 +374,16 @@ import Grid from '@material-ui/core/Grid';
                     <Grid item xs={12}></Grid>
 
 
-                    <Grid item xs={1}></Grid>
-                    <Grid item xs={3}><h4>Monthly Expenses</h4></Grid>
-                    <Grid item xs={2}>You</Grid>
-                    <Grid item xs={2}>Dependent(s)</Grid>
-                    <Grid item xs={4}></Grid> 
+
+                    <Grid item xs={4}><h4>Monthly Expenses</h4></Grid>
+                    <Grid item xs={4}>You</Grid>
+                    <Grid item xs={4}>Dependent(s)</Grid>
+
 
 
 
                     <Grid item xs={4}></Grid>
-                    <Grid item xs={2}> 
+                    <Grid item xs={4}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfMedPartB"
@@ -410,7 +403,7 @@ import Grid from '@material-ui/core/Grid';
                       </FormControl>                      
                       </Grid>
 
-                      <Grid item xs={2}>
+                      <Grid item xs={4}>
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="depOtherIncome2"
@@ -429,12 +422,10 @@ import Grid from '@material-ui/core/Grid';
                       />
                         </FormControl>
                         </Grid>
-                        <Grid item xs={4}></Grid>
-
 
 
                     <Grid item xs={4}></Grid>
-                    <Grid item xs={2}> 
+                    <Grid item xs={4}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfPrivateMedIns"
@@ -454,7 +445,7 @@ import Grid from '@material-ui/core/Grid';
                       </FormControl>
                       </Grid>
 
-                      <Grid item xs={2}>
+                      <Grid item xs={4}>
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="depPrivateMedIns"
@@ -473,11 +464,10 @@ import Grid from '@material-ui/core/Grid';
                       />
                           </FormControl>
                         </Grid>
-                        <Grid item xs={4}></Grid>
 
 
                     <Grid item xs={4}></Grid>
-                    <Grid item xs={2}> 
+                    <Grid item xs={4}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfOtherExpense1"
@@ -497,7 +487,7 @@ import Grid from '@material-ui/core/Grid';
                       </FormControl>
                       </Grid>
 
-                      <Grid item xs={2}>
+                      <Grid item xs={4}>
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="selfOtherExpense1"
@@ -516,11 +506,10 @@ import Grid from '@material-ui/core/Grid';
                       />
                         </FormControl>
                         </Grid>
-                        <Grid item xs={4}></Grid>
 
 
-                        <Grid item xs={4}></Grid>
-                    <Grid item xs={2}> 
+                    <Grid item xs={4}></Grid>
+                    <Grid item xs={4}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfOtherExpense2"
@@ -540,7 +529,7 @@ import Grid from '@material-ui/core/Grid';
                       </FormControl>
                       </Grid>
 
-                      <Grid item xs={2}>
+                      <Grid item xs={4}>
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="selfOtherExpense2"
@@ -559,9 +548,17 @@ import Grid from '@material-ui/core/Grid';
                       />
                         </FormControl>
                         </Grid>
-                        <Grid item xs={4}></Grid>
 
-
+                        <Grid item xs={5}></Grid>
+                        <Grid item xs={2}>
+                          <label htmlFor="outlined-button-file">
+                          <Button variant="outlined" component="span" size='medium' className={classes.button}>
+                          Calculate
+                          </Button>
+                          </label>
+                        </Grid>
+                        <Grid item xs={5}></Grid>
+                        
             </Grid>
 
         </Grid>

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import SimpleSelect from "./survey";
+import SimpleSelect from "./components/Survey";
 import Grid from '@material-ui/core/Grid';
-import './QuestionnairePage.css';
-
+import "../src/pages/QuestionnairePage.css"
 
 function QuestionnairePage () {
     return (
