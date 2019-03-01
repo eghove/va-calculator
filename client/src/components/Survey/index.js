@@ -38,24 +38,25 @@ import estimator from '../../utils/estimator';
       ben: '',
       dependents: '',
       calcDate: '',
-      selfSSIn: '',
-      depSSIn: '',
-      selfRetireIn: '',
-      depRetireIn: '',
-      selfOtherIn1: '',
-      depOtherIn1: '',
-      selfOtherIn2: '',
-      depOtherIn2: '',
-      selfMedPartBEx: '',
-      depMedPartBEx: '',
-      selfPrivMedIns: '',
-      depPrivMedIns: '',
-      selfOtherEx1: '',
-      depOtherEx1: '',
-      selfOtherEx2: '',
-      depOtherEx2: '',
+      selfSSIn: 0,
+      depSSIn: 0,
+      selfRetireIn: 0,
+      depRetireIn: 0,
+      selfOtherIn1: 0,
+      depOtherIn1: 0,
+      selfOtherIn2: 0,
+      depOtherIn2: 0,
+      selfMedPartBEx: 0,
+      depMedPartBEx: 0,
+      selfPrivMedIns: 0,
+      depPrivMedIns: 0,
+      selfOtherEx1: 0,
+      depOtherEx1: 0,
+      selfOtherEx2: 0,
+      depOtherEx2: 0,
       name: '',
-      labelWidth: 4000
+      labelWidth: 4000,
+      rateData: ''
     };
   
     componentDidMount() {
@@ -69,15 +70,17 @@ import estimator from '../../utils/estimator';
     };
 
     // estimator functions
-    getRates = (effectiveDate, claimantType) => {
-      
-      API.getRates(effectiveDate, claimantType);
-    }
-
+  
     handleCalculateButton = event => {
       event.preventDefault();
       // console.log("Clicked!");
-      this.getRates(this.state.calcDate, this.state.as)
+      API.getRates(this.state.calcDate, this.state.as)
+        .then(res => 
+            this.setState( {rateData: res.data} )
+        ).then( () => 
+          console.log(this.state.rateData)
+        )
+        .catch(err => console.log(err))
     }
   
     render() {
