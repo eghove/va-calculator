@@ -67,6 +67,18 @@ import estimator from '../../utils/estimator';
     handleChange = event => {
       this.setState({ [event.target.name]: event.target.value });
     };
+
+    // estimator functions
+    getRates = (effectiveDate, claimantType) => {
+      
+      API.getRates(effectiveDate, claimantType);
+    }
+
+    handleCalculateButton = event => {
+      event.preventDefault();
+      // console.log("Clicked!");
+      this.getRates(this.state.calcDate, this.state.as)
+    }
   
     render() {
       const { classes } = this.props;
@@ -557,7 +569,7 @@ import estimator from '../../utils/estimator';
                         <Grid item xs={5}></Grid>
                         <Grid item xs={2}>
                           <label htmlFor="outlined-button-file">
-                          <Button variant="outlined" component="span" size='medium' className={classes.button}>
+                          <Button variant="outlined" component="span" size='medium' className={classes.button} onClick={(event) => { this.handleCalculateButton(event)}}>
                           Calculate
                           </Button>
                           </label>
