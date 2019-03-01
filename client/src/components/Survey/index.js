@@ -11,6 +11,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+// pull in estimator API call
+import API from '../../utils/API';
+// pull in estimator logic
+import baseRate from '../../utils/baserate';
+import estimator from '../../utils/estimator';
   
   const styles = theme => ({
     root: {
