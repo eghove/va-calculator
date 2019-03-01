@@ -24,7 +24,7 @@ import './QuestionnairePage.css';
               Potential applicants may use this estimate to inform their decision as to whether
               they wish to initiate an often lengthy application process.
             </h5></Grid>
-            <Grid irwm xs={2}></Grid>
+            <Grid item xs={2}></Grid>
           </Grid>
       </div>
     );
