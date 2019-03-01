@@ -1,29 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="theme-color" content="#000000" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <!-- Link to reset.css -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/reset.css" />
-    
-    <!-- Link to Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-    <title>VA Pension Calculator</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000" />
+  <!--
+          manifest.json provides metadata used when your web app is installed on a
+          user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+        -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <!-- Link to reset.css -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/reset.css" />
+  <!--Individual Styling-->
+  <link rel="stylesheet" href="style.css">
+  <!-- Link to Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <title>VA Pension Estimator</title>
+  <base href="/">
+</head>
+
+<body>
+
+  <!--Not Sure which divs we need yet-->
+  <div id="root"></div>
+  <div id="loading">
+    <img src="assets/loading.svg" alt="Loading spinner">
+  </div>
+
+  <div class="content">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Auth0 - JavaScript</a>
+
+          <button id="btn-home-view" class="btn btn-primary btn-margin">
+            Home
+          </button>
+
+          <button id="qsLoginBtn" class="btn btn-primary btn-margin">
+            Log In
+          </button>
+
+          <button id="qsLogoutBtn" class="btn btn-primary btn-margin">
+            Log Out
+          </button>
+
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <!-- home view -->
+      <div id="home-view">
+        <h4></h4>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="node_modules/auth0-js/build/auth0.js"></script>
+  <script src="auth0-variables.js"></script>
+  <script src="app.js"></script>
+</body>
 </html>
