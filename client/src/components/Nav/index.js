@@ -28,11 +28,11 @@ function Nav (props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton className={classes.menuButton}  target="_blank" href = "/" color="inherit" aria-label="Menu">VA Pension Estimator
+          <IconButton className={classes.menuButton} href = "/" color="inherit" aria-label="Menu">VA Pension Estimator
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-          <Button color="inherit"  target="_blank" href = "/">About</Button>
-          <Button color="inherit"  target="_blank" href = "/questions">Questionnaire</Button>
+          <Button color="inherit"   href = "/">About</Button>
+          <Button color="inherit"   href = "/questions">Questionnaire</Button>
           </Typography>
           <Button color="inherit">Logoff</Button>
         </Toolbar>
