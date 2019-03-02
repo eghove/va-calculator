@@ -31,7 +31,7 @@ function Nav (props) {
           <IconButton className={classes.menuButton} href = "/" color="inherit" aria-label="Menu">VA Pension Estimator
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-          <Button color="inherit"   href = "/">About</Button>
+          {/* <Button color="inherit"   href = "/">About</Button> */}
           <Button color="inherit"   href = "/questions">Questionnaire</Button>
           </Typography>
           <Button color="inherit">Logoff</Button>
