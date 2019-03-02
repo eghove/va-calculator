@@ -56,7 +56,9 @@ import estimator from '../../utils/estimator';
       depOtherEx2: 0,
       name: '',
       labelWidth: 4000,
-      rateData: ''
+      rateData: '',
+      incomeArray: [0],
+      expensesArray: [0]
     };
   
     componentDidMount() {
@@ -70,6 +72,25 @@ import estimator from '../../utils/estimator';
     };
 
     // estimator functions
+
+    aggregateIncome = (deps, amt1, amt2, amt3, amt4, depAmt1, depAmt2, depAmt3, depAmt4) => {
+      // if no dependents
+      if (parseInt(deps) < 1) {
+        this.setState( {incomeArray: [parseFloat(amt1), parseFloat(amt2), parseFloat(amt3), parseFloat(amt4)]});
+      } else {
+        this.setState( {incomeArray: [parseFloat(amt1), parseFloat(amt2), parseFloat(amt3), parseFloat(amt4), parseFloat(depAmt1), parseFloat(depAmt2), parseFloat(depAmt3), parseFloat(depAmt4) ]});
+      }
+    }
+
+
+    aggregateExpenses = (deps, amt1, amt2, amt3, amt4, depAmt1, depAmt2, depAmt3, depAmt4) => {
+      // if no dependents
+      if (parseInt(deps) < 1) {
+        this.setState( {expensesArray: [parseFloat(amt1), parseFloat(amt2), parseFloat(amt3), parseFloat(amt4)]});
+      } else {
+        this.setState( {expensesArray: [parseFloat(amt1), parseFloat(amt2), parseFloat(amt3), parseFloat(amt4), parseFloat(depAmt1), parseFloat(depAmt2), parseFloat(depAmt3), parseFloat(depAmt4) ]});
+      }
+    }
   
     handleCalculateButton = event => {
       event.preventDefault();
@@ -77,10 +98,19 @@ import estimator from '../../utils/estimator';
       API.getRates(this.state.calcDate, this.state.as)
         .then(res => 
             this.setState( {rateData: res.data} )
-        ).then( () => 
-          console.log(this.state.rateData)
         )
-        .catch(err => console.log(err))
+        .then( () => 
+          this.aggregateIncome(
+            this.state.dependents, this.state.selfSSIn, this.state.selfRetireIn, this.state.selfOtherIn1, this.state.selfOtherIn2, this.state.depSSIn, this.state.depRetireIn, this.state.depOtherIn1, this.state.depOtherIn2
+            )
+        )
+        .then( () =>
+          this.aggregateExpenses(
+            this.state.dependents, this.state.selfMedPartBEx, this.state.selfPrivMedIns, this.state.selfOtherEx1, this.state.selfOtherEx2, this.state.depMedPartBEx, this.state.depPrivMedIns, this.state.depOtherEx1, this.state.depOtherEx2
+          )
+        )
+        .then( () => console.log(this.state.incomeArray, this.state.expensesArray))
+        .catch(err => console.log(err));
     }
   
     render() {
