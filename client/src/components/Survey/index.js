@@ -56,7 +56,7 @@ import estimator from '../../utils/estimator';
       depOtherEx2: 0,
       name: '',
       labelWidth: 4000,
-      rateData: '',
+      rates: '',
       incomeArray: [0],
       expensesArray: [0]
     };
@@ -94,22 +94,30 @@ import estimator from '../../utils/estimator';
   
     handleCalculateButton = event => {
       event.preventDefault();
-      // console.log("Clicked!");
+      
+      // get the rates needed for the estimator, store them in state
       API.getRates(this.state.calcDate, this.state.as)
         .then(res => 
-            this.setState( {rateData: res.data} )
+            this.setState( {rates: res.data} )
         )
+        // aggregate all the income values into an array that the estimator can read.
         .then( () => 
           this.aggregateIncome(
             this.state.dependents, this.state.selfSSIn, this.state.selfRetireIn, this.state.selfOtherIn1, this.state.selfOtherIn2, this.state.depSSIn, this.state.depRetireIn, this.state.depOtherIn1, this.state.depOtherIn2
             )
         )
+        // aggregate all the expense values into an array that the estimator can read.
         .then( () =>
           this.aggregateExpenses(
             this.state.dependents, this.state.selfMedPartBEx, this.state.selfPrivMedIns, this.state.selfOtherEx1, this.state.selfOtherEx2, this.state.depMedPartBEx, this.state.depPrivMedIns, this.state.depOtherEx1, this.state.depOtherEx2
           )
         )
-        .then( () => console.log(this.state.incomeArray, this.state.expensesArray))
+        .then( () => 
+          console.log (
+            estimator.monthlyRate(this.state.incomeArray, this.state.expensesArray,
+              baseRate.calculateMAPR(this.state.as, parseInt(this.state.dependents), this.state.ben, this.state.rates[0]), baseRate.baseRateforMeds(this.state.as, parseInt(this.state.dependents), this.state.rates[0]))
+          )
+        )
         .catch(err => console.log(err));
     }
   
