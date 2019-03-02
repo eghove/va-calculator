@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+// this will need to be process.env.port || 3000 once we get ready to deploy to get the API routes. Usually 3001
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");

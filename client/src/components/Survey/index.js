@@ -11,6 +11,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+// pull in estimator API call
+import API from '../../utils/API';
+// pull in estimator logic
+import baseRate from '../../utils/baserate';
+import estimator from '../../utils/estimator';
   
   const styles = theme => ({
     root: {
@@ -33,24 +38,28 @@ import Button from '@material-ui/core/Button';
       ben: '',
       dependents: '',
       calcDate: '',
-      selfSSIn: '',
-      depSSIn: '',
-      selfRetireIn: '',
-      depRetireIn: '',
-      selfOtherIn1: '',
-      depOtherIn1: '',
-      selfOtherIn2: '',
-      depOtherIn2: '',
-      selfMedPartBEx: '',
-      depMedPartBEx: '',
-      selfPrivMedIns: '',
-      depPrivMedIns: '',
-      selfOtherEx1: '',
-      depOtherEx1: '',
-      selfOtherEx2: '',
-      depOtherEx2: '',
+      selfSSIn: 0,
+      depSSIn: 0,
+      selfRetireIn: 0,
+      depRetireIn: 0,
+      selfOtherIn1: 0,
+      depOtherIn1: 0,
+      selfOtherIn2: 0,
+      depOtherIn2: 0,
+      selfMedPartBEx: 0,
+      depMedPartBEx: 0,
+      selfPrivMedIns: 0,
+      depPrivMedIns: 0,
+      selfOtherEx1: 0,
+      depOtherEx1: 0,
+      selfOtherEx2: 0,
+      depOtherEx2: 0,
       name: '',
-      labelWidth: 4000
+      labelWidth: 4000,
+      rates: '',
+      incomeArray: [0],
+      expensesArray: [0],
+      monthlyRate: 'None'
     };
   
     componentDidMount() {
@@ -62,6 +71,57 @@ import Button from '@material-ui/core/Button';
     handleChange = event => {
       this.setState({ [event.target.name]: event.target.value });
     };
+
+    // estimator functions
+
+    aggregateIncome = (deps, amt1, amt2, amt3, amt4, depAmt1, depAmt2, depAmt3, depAmt4) => {
+      // if no dependents
+      if (parseInt(deps) < 1) {
+        this.setState( {incomeArray: [parseFloat(amt1), parseFloat(amt2), parseFloat(amt3), parseFloat(amt4)]});
+      } else {
+        this.setState( {incomeArray: [parseFloat(amt1), parseFloat(amt2), parseFloat(amt3), parseFloat(amt4), parseFloat(depAmt1), parseFloat(depAmt2), parseFloat(depAmt3), parseFloat(depAmt4) ]});
+      }
+    }
+
+
+    aggregateExpenses = (deps, amt1, amt2, amt3, amt4, depAmt1, depAmt2, depAmt3, depAmt4) => {
+      // if no dependents
+      if (parseInt(deps) < 1) {
+        this.setState( {expensesArray: [parseFloat(amt1), parseFloat(amt2), parseFloat(amt3), parseFloat(amt4)]});
+      } else {
+        this.setState( {expensesArray: [parseFloat(amt1), parseFloat(amt2), parseFloat(amt3), parseFloat(amt4), parseFloat(depAmt1), parseFloat(depAmt2), parseFloat(depAmt3), parseFloat(depAmt4) ]});
+      }
+    }
+  
+    handleCalculateButton = event => {
+      event.preventDefault();
+      
+      // get the rates needed for the estimator, store them in state
+      API.getRates(this.state.calcDate, this.state.as)
+        .then(res => 
+            this.setState( {rates: res.data} )
+        )
+        // aggregate all the income values into an array that the estimator can read.
+        .then( () => 
+          this.aggregateIncome(
+            this.state.dependents, this.state.selfSSIn, this.state.selfRetireIn, this.state.selfOtherIn1, this.state.selfOtherIn2, this.state.depSSIn, this.state.depRetireIn, this.state.depOtherIn1, this.state.depOtherIn2
+            )
+        )
+        // aggregate all the expense values into an array that the estimator can read.
+        .then( () =>
+          this.aggregateExpenses(
+            this.state.dependents, this.state.selfMedPartBEx, this.state.selfPrivMedIns, this.state.selfOtherEx1, this.state.selfOtherEx2, this.state.depMedPartBEx, this.state.depPrivMedIns, this.state.depOtherEx1, this.state.depOtherEx2
+          )
+        )
+        .then( () => {
+          let monthlyRate =
+            estimator.monthlyRate(this.state.incomeArray, this.state.expensesArray,
+              baseRate.calculateMAPR(this.state.as, parseInt(this.state.dependents), this.state.ben, this.state.rates[0]), baseRate.baseRateforMeds(this.state.as, parseInt(this.state.dependents), this.state.rates[0]));
+            window.location.replace("/results/" + monthlyRate);
+            }
+        )
+        .catch(err => console.log(err));
+    }
   
     render() {
       const { classes } = this.props;
@@ -176,11 +236,11 @@ import Button from '@material-ui/core/Button';
                         id: 'age-simple',
                       }}
                     >
-                      <MenuItem value={'12/1/2014'}>12/1/2014</MenuItem>
-                      <MenuItem value={'12/1/2015'}>12/1/2015</MenuItem>
-                      <MenuItem value={'12/1/2016'}>12/1/2016</MenuItem>
-                      <MenuItem value={'12/1/2017'}>12/1/2017</MenuItem>
-                      <MenuItem value={'12/1/2018'}>12/1/2018</MenuItem>
+                      <MenuItem value={'2014-12-01'}>12/1/2014</MenuItem>
+                      <MenuItem value={'2015-12-01'}>12/1/2015</MenuItem>
+                      <MenuItem value={'2016-12-01'}>12/1/2016</MenuItem>
+                      <MenuItem value={'2017-12-01'}>12/1/2017</MenuItem>
+                      <MenuItem value={'2018-12-01'}>12/1/2018</MenuItem>
                   
                     </Select>
                   </FormControl>
@@ -429,7 +489,7 @@ import Button from '@material-ui/core/Button';
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfPrivateMedIns"
-                      label="Private Medical Ins"
+                      label="Private Medical Insurance"
                       value={this.state.selfPrivMedIns}
                       onChange={this.handleChange}
                       InputProps ={{
@@ -449,7 +509,7 @@ import Button from '@material-ui/core/Button';
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="depPrivateMedIns"
-                        label="Private Medical Ins (Dependence)"
+                        label="Private Medical Insurance (Dependents)"
                         value={this.state.depPrivMedIns}
                         onChange={this.handleChange}
                         InputProps ={{
@@ -491,7 +551,7 @@ import Button from '@material-ui/core/Button';
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="selfOtherExpense1"
-                        label="Other Expense 1 (Dependence)"
+                        label="Other Expense 1 (Dependents)"
                         value={this.state.depOtherEx1}
                         onChange={this.handleChange}
                         InputProps ={{
@@ -533,7 +593,7 @@ import Button from '@material-ui/core/Button';
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="selfOtherExpense2"
-                        label="Other Expense 2 (Dependence)"
+                        label="Other Expense 2 (Dependents)"
                         value={this.state.depOtherEx2}
                         onChange={this.handleChange}
                         InputProps ={{
@@ -552,7 +612,7 @@ import Button from '@material-ui/core/Button';
                         <Grid item xs={5}></Grid>
                         <Grid item xs={2}>
                           <label htmlFor="outlined-button-file">
-                          <Button variant="outlined" component="span" size='medium' className={classes.button}>
+                          <Button variant="outlined" component="span" size='medium' className={classes.button} onClick={(event) => { this.handleCalculateButton(event)}}>
                           Calculate
                           </Button>
                           </label>
