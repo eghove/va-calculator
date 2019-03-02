@@ -58,7 +58,8 @@ import estimator from '../../utils/estimator';
       labelWidth: 4000,
       rates: '',
       incomeArray: [0],
-      expensesArray: [0]
+      expensesArray: [0],
+      monthlyRate: 'None'
     };
   
     componentDidMount() {
@@ -112,11 +113,12 @@ import estimator from '../../utils/estimator';
             this.state.dependents, this.state.selfMedPartBEx, this.state.selfPrivMedIns, this.state.selfOtherEx1, this.state.selfOtherEx2, this.state.depMedPartBEx, this.state.depPrivMedIns, this.state.depOtherEx1, this.state.depOtherEx2
           )
         )
-        .then( () => 
-          console.log (
+        .then( () => {
+          let monthlyRate =
             estimator.monthlyRate(this.state.incomeArray, this.state.expensesArray,
-              baseRate.calculateMAPR(this.state.as, parseInt(this.state.dependents), this.state.ben, this.state.rates[0]), baseRate.baseRateforMeds(this.state.as, parseInt(this.state.dependents), this.state.rates[0]))
-          )
+              baseRate.calculateMAPR(this.state.as, parseInt(this.state.dependents), this.state.ben, this.state.rates[0]), baseRate.baseRateforMeds(this.state.as, parseInt(this.state.dependents), this.state.rates[0]));
+            window.location.replace("/results/" + monthlyRate);
+            }
         )
         .catch(err => console.log(err));
     }
