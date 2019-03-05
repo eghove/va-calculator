@@ -16,7 +16,9 @@ import API from '../../utils/API';
 // pull in estimator logic
 import baseRate from '../../utils/baserate';
 import estimator from '../../utils/estimator';
-  
+import "../Survey/survey.css"
+
+
   const styles = theme => ({
     root: {
       display: 'flex',
@@ -131,7 +133,7 @@ import estimator from '../../utils/estimator';
 
         <Grid container spacing = {24}>
  
-        <Grid item xs={12} id='surveyTitle' ><h4>Survey Questions</h4></Grid>
+        <Grid item xs={12} id='surveyTitle' >Survey Questions</Grid>
         
           <Grid item xs={12}>
                 <FormControl className={classes.formControl} fullWidth ={true} >
