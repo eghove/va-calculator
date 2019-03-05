@@ -32,7 +32,7 @@ function Nav (props) {
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
           {/* <Button color="inherit"   href = "/">About</Button> */}
-          <Button color="inherit"   href = "/questions">Questionnaire</Button>
+          <Button color="inherit"   href = "/questions"> Begin Questionnaire</Button>
           </Typography>
           <Button color="inherit">Logoff</Button>
         </Toolbar>
