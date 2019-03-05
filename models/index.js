@@ -1,4 +1,5 @@
 module.exports = {
   Rates: require("./rates"),
-  Estimates: require("./estimates")
+  Estimates: require("./estimates"),
+  Users: require("./users")
 };

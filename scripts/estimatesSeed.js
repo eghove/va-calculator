@@ -14,7 +14,6 @@ const estimates =
     effectiveDate: "2018-12-01",
     additionalBenefits: "None",
     dependentNumber: 0,
-    youSSA: 157.52
   }
 
 
