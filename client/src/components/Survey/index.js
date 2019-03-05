@@ -94,34 +94,45 @@ import "../Survey/survey.css"
         this.setState( {expensesArray: [parseFloat(amt1), parseFloat(amt2), parseFloat(amt3), parseFloat(amt4), parseFloat(depAmt1), parseFloat(depAmt2), parseFloat(depAmt3), parseFloat(depAmt4) ]});
       }
     }
-  
+    // function to insure all values are zero or greater
+
+    validateAmounts = (array) => {
+      let isValid = true;
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] < 0) {
+          isValid = false;
+        }
+      }
+      return isValid;
+    }
+
     handleCalculateButton = event => {
       event.preventDefault();
-      
+
       // get the rates needed for the estimator, store them in state
       API.getRates(this.state.calcDate, this.state.as)
-        .then(res => 
-            this.setState( {rates: res.data} )
+        .then(res =>
+          this.setState({ rates: res.data })
         )
         // aggregate all the income values into an array that the estimator can read.
-        .then( () => 
+        .then(() => {
           this.aggregateIncome(
             this.state.dependents, this.state.selfSSIn, this.state.selfRetireIn, this.state.selfOtherIn1, this.state.selfOtherIn2, this.state.depSSIn, this.state.depRetireIn, this.state.depOtherIn1, this.state.depOtherIn2
-            )
-        )
-        // aggregate all the expense values into an array that the estimator can read.
-        .then( () =>
+          );
           this.aggregateExpenses(
             this.state.dependents, this.state.selfMedPartBEx, this.state.selfPrivMedIns, this.state.selfOtherEx1, this.state.selfOtherEx2, this.state.depMedPartBEx, this.state.depPrivMedIns, this.state.depOtherEx1, this.state.depOtherEx2
-          )
-        )
-        .then( () => {
-          let monthlyRate =
-            estimator.monthlyRate(this.state.incomeArray, this.state.expensesArray,
-              baseRate.calculateMAPR(this.state.as, parseInt(this.state.dependents), this.state.ben, this.state.rates[0]), baseRate.baseRateforMeds(this.state.as, parseInt(this.state.dependents), this.state.rates[0]));
+          );
+          // if all the information in the arrays is 0 or greater, then take the user to the rates display
+          if (this.validateAmounts(this.state.incomeArray) === true && this.validateAmounts(this.state.expensesArray) === true) {
+            let monthlyRate =
+              estimator.monthlyRate(this.state.incomeArray, this.state.expensesArray,
+                baseRate.calculateMAPR(this.state.as, parseInt(this.state.dependents), this.state.ben, this.state.rates[0]), baseRate.baseRateforMeds(this.state.as, parseInt(this.state.dependents), this.state.rates[0]));
             window.location.replace("/results/" + monthlyRate);
-            }
-        )
+          // if any of the information in the arrays is less than 0, keep the user on /questions to try again
+          } else {
+            alert("Please make sure any value entered in Monthly Income and Monthly Expenses is greater than or equal to zero.");
+          }
+        })
         .catch(err => console.log(err));
     }
   
