@@ -1,5 +1,19 @@
 #applyButton {
     text-align: center;
-display:flex;
-justify-content: center;
+    display:flex;
+    justify-content: center;
 }
+
+#surveyTitle {
+    margin-top: 5%;  
+    font-weight: bold; 
+    font-size: 36px;
+    text-align: center;
+}
+
+ #surveyText {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 5%;
+
+ }

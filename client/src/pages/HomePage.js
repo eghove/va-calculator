@@ -28,8 +28,13 @@ import Footer from '../components/Footer';
                 <Grid item xs={2}></Grid>
           </Grid>
                 <Footer>
-                <p> Disclaimer: The VA Pension Estimator is not affiliated with the U.S. Department of Veterans Affairs, and is intended for educational purposes only. Any estimate displayed is unofficial and should not be construed as a promise of monetary benefits.</p>
-                
+                  <Grid container spacing ={24}>
+                  <Grid item xs={2}></Grid>
+                  <Grid item xs={8}>
+                    <p> Disclaimer: The VA Pension Estimator is not affiliated with the U.S. Department of Veterans Affairs, and is intended for educational purposes only. Any estimate displayed is unofficial and should not be construed as a promise of monetary benefits.</p>
+                    </Grid>
+                    <Grid item xs={2}></Grid>
+                    </Grid>
                 </Footer>
 
       </div>
