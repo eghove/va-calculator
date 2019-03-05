@@ -23,7 +23,7 @@ app.use("/api/estimate", estimatorRoute);
 
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/VA-Estimator");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/VA-Estimator", {useNewUrlParser: true});
 
 // Send every other request to the React app
 // Define any API routes before this runs
