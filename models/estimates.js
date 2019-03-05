@@ -2,6 +2,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// not convinced my default values do anything.
+
 const estimatesSchema = new Schema({
   // saves what the user is applying as
   applyingAs: {
