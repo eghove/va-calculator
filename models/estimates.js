@@ -20,6 +20,7 @@ const estimatesSchema = new Schema({
   // Saves number of dependents
   dependentNumber: {
     type: Number,
+    default: 0,
     min: 0
   },
 
@@ -32,84 +33,100 @@ const estimatesSchema = new Schema({
   // Saves YOU income
   youSSA: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   youRtmt: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   youOthInc1: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   youOthInc2: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   // Saves DEPENDENT(S) income
   depSSA: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   depRtmt: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   depOthInc1: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   depOthInc2: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   // Saves YOU medical expenses
   youMedB: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   youPMI: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   youOthExp1: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   youOthExp2: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   // saves DEPENDENT(S) medical expenses
   depMedB: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   depPMI: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   depOthExp1: {
     type: Number,
+    default: 0,
     min: 0
   },
 
   depOthExp2: {
     type: Number,
+    default: 0,
     min: 0
   },
 

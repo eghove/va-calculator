@@ -10,5 +10,8 @@ router.route("/:effectiveDate/:claimantType")
   // get calls the method that returns the appropriate rates for the estimator
   .get(estimatorController.findRate);
 
+// matches with "api/estimate/store-estimate"
+router.route("/store-estimate")
+  .post(estimatorController.storeEstimates);
 // export the router
 module.exports = router;
