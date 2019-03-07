@@ -1,10 +1,10 @@
 import Grid from '@material-ui/core/Grid';
 import React from 'react';
-import "./HomePage.css"
-import Footer from '../components/Footer';
+import "../Home/Home.css"
+import Footer from '../Footer';
 
 
-  function HomePage () {
+  function Home () {
     return (
       <div>
         <Grid container spacing = {24}>
@@ -42,4 +42,4 @@ import Footer from '../components/Footer';
   }
 
 
-export default HomePage;
+export default Home;
