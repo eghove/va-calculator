@@ -20,9 +20,9 @@ const estimates =
 
 db.Estimates
   .remove({})
-  .then(() => db.Estimates.collection.insertOne(estimates))
+  .then(() => db.Estimates.create(estimates))
   .then(data => {
-    console.log(data.result.n + " records inserted!");
+    // console.log(data.result.n + " records inserted!");
     process.exit(0);
   })
   .catch(err => {
