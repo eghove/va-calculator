@@ -280,10 +280,10 @@ import "../Survey/survey.css"
                             value={this.state.selfSSIn}
                             onChange={this.handleChange}
                             className={classes.textField}
-                            startAdornment={<InputAdornment position="start">$</InputAdornment>}
                             type="number"
                             InputProps={{
-                              name: "selfSSIn"
+                              name: "selfSSIn",
+                              startAdornment: <InputAdornment position="start">$</InputAdornment>
                             }}
                             InputLabelProps={{
                               shrink: true,
@@ -303,7 +303,8 @@ import "../Survey/survey.css"
                               type="number"
                               className={classes.textField}
                               InputProps ={{
-                                name: 'depSSIn'
+                                name: 'depSSIn',
+                                startAdornment: <InputAdornment position="start">$</InputAdornment>
                               }}
                               InputLabelProps={{
                                 shrink: true,
@@ -326,7 +327,8 @@ import "../Survey/survey.css"
                               type="number"
                               className={classes.textField}
                               InputProps ={{
-                                name: 'selfRetireIn'
+                                name: 'selfRetireIn',
+                                startAdornment: <InputAdornment position="start">$</InputAdornment>
                               }}
                               InputLabelProps={{
                                 shrink: true,
@@ -344,7 +346,8 @@ import "../Survey/survey.css"
                             value={this.state.depRetireIn}
                             onChange={this.handleChange}
                             InputProps ={{
-                              name: 'depRetireIn'
+                              name: 'depRetireIn',
+                              startAdornment: <InputAdornment position="start">$</InputAdornment>
                             }}
                             type="number"
                             className={classes.textField}
@@ -368,7 +371,8 @@ import "../Survey/survey.css"
                       type="number"
                       className={classes.textField}
                       InputProps ={{
-                        name: 'selfOtherIn1'
+                        name: 'selfOtherIn1',
+                        startAdornment: <InputAdornment position="start">$</InputAdornment>
                       }}
                       InputLabelProps={{
                         shrink: true,
@@ -386,7 +390,8 @@ import "../Survey/survey.css"
                         value={this.state.depOtherIn1}
                         onChange={this.handleChange}
                         InputProps ={{
-                          name: 'depOtherIn1'
+                          name: 'depOtherIn1',
+                          startAdornment: <InputAdornment position="start">$</InputAdornment>
                         }}
                         type="number"
                         className={classes.textField}
@@ -409,7 +414,8 @@ import "../Survey/survey.css"
                       value={this.state.selfOtherIn2}
                       onChange={this.handleChange}
                       InputProps ={{
-                        name: 'selfOtherIn2'
+                        name: 'selfOtherIn2',
+                        startAdornment: <InputAdornment position="start">$</InputAdornment>
                       }}
                       type="number"
                       className={classes.textField}
@@ -429,7 +435,8 @@ import "../Survey/survey.css"
                         value={this.state.depOtherIn2}
                         onChange={this.handleChange}
                         InputProps ={{
-                          name: 'depOtherIn2'
+                          name: 'depOtherIn2',
+                          startAdornment: <InputAdornment position="start">$</InputAdornment>
                         }}
                         type="number"
                         className={classes.textField}
@@ -464,7 +471,8 @@ import "../Survey/survey.css"
                       value={this.state.selfMedPartBEx}
                       onChange={this.handleChange}
                       InputProps ={{
-                        name: 'selfMedPartBEx'
+                        name: 'selfMedPartBEx',
+                        startAdornment: <InputAdornment position="start">$</InputAdornment>
                       }}
                       type="number"
                       className={classes.textField}
@@ -484,7 +492,8 @@ import "../Survey/survey.css"
                         value={this.state.depMedPartBEx}
                         onChange={this.handleChange}
                         InputProps ={{
-                          name: 'depMedPartBEx'
+                          name: 'depMedPartBEx',
+                          startAdornment: <InputAdornment position="start">$</InputAdornment>
                         }}
                         type="number"
                         className={classes.textField}
@@ -506,7 +515,8 @@ import "../Survey/survey.css"
                       value={this.state.selfPrivMedIns}
                       onChange={this.handleChange}
                       InputProps ={{
-                        name: 'selfPrivMedIns'
+                        name: 'selfPrivMedIns',
+                        startAdornment: <InputAdornment position="start">$</InputAdornment>
                       }}
                       type="number"
                       className={classes.textField}
@@ -526,7 +536,8 @@ import "../Survey/survey.css"
                         value={this.state.depPrivMedIns}
                         onChange={this.handleChange}
                         InputProps ={{
-                          name: 'depPrivMedIns'
+                          name: 'depPrivMedIns',
+                          startAdornment: <InputAdornment position="start">$</InputAdornment>
                         }}
                         type="number"
                         className={classes.textField}
@@ -548,7 +559,8 @@ import "../Survey/survey.css"
                       value={this.state.selfOtherEx1}
                       onChange={this.handleChange}
                       InputProps ={{
-                        name: 'selfOtherEx1'
+                        name: 'selfOtherEx1',
+                        startAdornment: <InputAdornment position="start">$</InputAdornment>
                       }}
                       type="number"
                       className={classes.textField}
@@ -568,7 +580,8 @@ import "../Survey/survey.css"
                         value={this.state.depOtherEx1}
                         onChange={this.handleChange}
                         InputProps ={{
-                          name: 'depOtherEx1'
+                          name: 'depOtherEx1',
+                          startAdornment: <InputAdornment position="start">$</InputAdornment>
                         }}
                         type="number"
                         className={classes.textField}
@@ -590,7 +603,8 @@ import "../Survey/survey.css"
                       value={this.state.selfOtherEx2}
                       onChange={this.handleChange}
                       InputProps ={{
-                        name: 'selfOtherEx2'
+                        name: 'selfOtherEx2',
+                        startAdornment: <InputAdornment position="start">$</InputAdornment>
                       }}
                       type="number"
                       className={classes.textField}
@@ -610,7 +624,8 @@ import "../Survey/survey.css"
                         value={this.state.depOtherEx2}
                         onChange={this.handleChange}
                         InputProps ={{
-                          name: 'depOtherEx2'
+                          name: 'depOtherEx2',
+                          startAdornment: <InputAdornment position="start">$</InputAdornment>
                         }}
                         type="number"
                         className={classes.textField}
