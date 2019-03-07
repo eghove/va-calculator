@@ -106,6 +106,17 @@ import "../Survey/survey.css"
       return isValid;
     }
 
+    // function validate no null
+    validateNotNull = (array) => {
+      let isValid = true;
+      for (let i = 0; i < array.length; i++) {
+        if ( isNaN(array[i])  ) {
+          isValid = false
+        }
+      }
+      return isValid;
+    }
+
     handleCalculateButton = event => {
       event.preventDefault();
 
@@ -123,7 +134,12 @@ import "../Survey/survey.css"
             this.state.dependents, this.state.selfMedPartBEx, this.state.selfPrivMedIns, this.state.selfOtherEx1, this.state.selfOtherEx2, this.state.depMedPartBEx, this.state.depPrivMedIns, this.state.depOtherEx1, this.state.depOtherEx2
           );
           // if all the information in the arrays is 0 or greater, then take the user to the rates display
-          if (this.validateAmounts(this.state.incomeArray) === true && this.validateAmounts(this.state.expensesArray) === true) {
+          if (
+            this.validateAmounts(this.state.incomeArray) === true &&
+            this.validateAmounts(this.state.expensesArray) === true &&
+            this.validateNotNull(this.state.incomeArray) === true &&
+            this.validateNotNull(this.state.expensesArray) === true
+            ) {
             let monthlyRate =
               estimator.monthlyRate(this.state.incomeArray, this.state.expensesArray,
                 baseRate.calculateMAPR(this.state.as, parseInt(this.state.dependents), this.state.ben, this.state.rates[0]), baseRate.baseRateforMeds(this.state.as, parseInt(this.state.dependents), this.state.rates[0]));
