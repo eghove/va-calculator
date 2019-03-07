@@ -1,7 +1,3 @@
-// the logic for the estimator
-// for testing
-// var a = process.argv[2];
-
 
 const estimator = {
   // method that takes in the baseMedRate, calculates the medical expense deduction.
@@ -56,11 +52,11 @@ const estimator = {
     } else {
       totalMeds = totalMeds - estimator.calcMedDed(baseMedRate);
     };
-    // console.log("Total Meds are: " + totalMeds);
+    
 
     // determine total income
     let totalIncome = estimator.totalIncome(incomeArray)
-    // console.log("Total income is: "+ totalIncome);
+    
 
     let IVAP = totalIncome - totalMeds;
     // income for VA purposes cannot be negative so it will return zero; otherwise return the correct IVAP
@@ -88,5 +84,3 @@ const estimator = {
 
 module.exports = estimator;
 
-// THE TESTING FUNCTIONS
-// console.log(estimator.monthlyRate([100.90, 91.90], [94.90], 18000, 15000));
