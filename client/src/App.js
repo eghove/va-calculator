@@ -1,9 +1,10 @@
 import React, { Component }from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import QuestionnairePage from "./pages/QuestionnairePage";
-import NoMatch from "./pages/NoMatch";
+// import NoMatch from "./pages/NoMatch";
 import ResultsPage from "./pages/ResultsPage";
 import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -42,7 +43,8 @@ class App extends Component {
               </IconButton>
               <Typography variant="h6" color="inherit" className="grow">
               {/* <Button color="inherit"   href = "/">About</Button> */}
-              <Button color="inherit"   href = "/questions"> Begin Questionnaire</Button>
+              <Button color="inherit"   href = "/questions">Begin Questionnaire</Button>
+              <Button color="inherit" href = "/about">About the Team</Button>
               </Typography>
                 {
                   !isAuthenticated() && (
@@ -77,6 +79,7 @@ class App extends Component {
               <Route exact path="/home" component={HomePage} />
               <Route exact path="/results/:amount" component={ResultsPage} />
               <Route exact path="/questions" component={QuestionnairePage} />
+              <Route exact path="/about" component={AboutPage} />
               {/* <Route component={NoMatch} /> */}
           </Switch>
         </div>
