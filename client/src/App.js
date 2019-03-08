@@ -31,6 +31,8 @@ class App extends Component {
 
   render () {
     const { isAuthenticated } = this.props.auth;
+    // console.log(localStorage.getItem('access_token'));
+    // console.log(localStorage.getItem('id_token'));
     return (
       <Router>
         <div>
