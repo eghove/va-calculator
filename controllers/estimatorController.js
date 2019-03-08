@@ -13,6 +13,14 @@ module.exports = {
       } )
       .then(dbResults => res.json(dbResults))
       .catch(err => res.status(422).json(err));
+  },
+
+  // method that stores the figures from the ?rre when the user hits calculate
+  storeEstimates: function(req, res) {
+    db.Estimates
+      .create(req.body)
+      .then(dbResults => res.json(dbResults))
+      .catch(err => res.status(422).json(err));
   }
 }
 
