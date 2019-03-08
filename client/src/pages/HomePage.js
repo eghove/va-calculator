@@ -13,19 +13,10 @@ import Footer from '../components/Footer';
               <Grid item xs={2}></Grid>
 
               <Grid item xs={8} id='homeText'>
-                  The U.S. Department of Veterans Affairs (the VA) administers an income-assistance program
-                  called Veterans Pension (or, in the case of dependents who survive a deceased veteran,
-                  Survivors Pension) about which many misperceptions exist. There are many income-related
-                  factors that determine the monthly Pension rate to which a veteran or veteran’s surviving
-                  dependent may be entitled. While there are pages upon pages of documents on the VA’s
-                  website and on other websites explaining how the Pension rate may be calculated, there isn’t a
-                  simple, intuitive ballpark estimate calculator that potential applicants can use.
-                  Potential applicants may use this application to estimate their potential Pension rate. 
-                  Potential applicants may use this estimate to inform their decision as to whether
-                  they wish to initiate an often lengthy application process.
-                </Grid>
+                The U.S. Department of Veterans Affairs (the VA) administers an income-assistance program called Veterans Pension (or, in the case of dependents who survive a deceased veteran, Survivors Pension) about which many misperceptions exist. There are many income-related factors that determine the monthly Pension rate to which a veteran or veteran’s surviving dependent may be entitled. Potential applicants may use this application to estimate their potential Pension rate. 
+              </Grid>
 
-                <Grid item xs={2}></Grid>
+              <Grid item xs={2}></Grid>
           </Grid>
                 <Footer>
                   <Grid container spacing ={24}>
