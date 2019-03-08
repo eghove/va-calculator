@@ -149,6 +149,31 @@ import "../Survey/survey.css"
             alert("Please make sure any value entered in Monthly Income and Monthly Expenses is greater than or equal to zero.");
           }
         })
+        // store all the data entered in the survey/?rre when the user his the calculate button
+        .then(() => {
+          API.postSurveyData({
+            additionalBenefits: this.state.ben,
+            dependentNumber: this.state.dependents,
+            youSSA: this.state.selfSSIn,
+            youRtmt: this.state.selfRetireIn,
+            youOthInc1: this.state.selfOtherIn1,
+            youOthInc2: this.state.selfOtherIn2,
+            depSSA: this.state.depSSIn,
+            depRtmt: this.state.depRetireIn,
+            depOthInc1: this.state.depOtherIn1,
+            depOthInc2: this.state.depOtherIn2,
+            youMedB: this.state.selfMedPartBEx,
+            youPMI: this.state.selfPrivMedIns,
+            youOthExp1: this.state.selfOtherEx1,
+            youOthExp2: this.state.selfOtherEx2,
+            depMedB: this.state.depMedPartBEx,
+            depPMI: this.state.depPrivMedIns,
+            depOthExp1: this.state.depOtherEx1,
+            depOthExp2: this.state.depOtherEx2,
+            effectiveDate: this.state.calcDate,
+            applyingAs: this.state.as
+          })
+        })
         .catch(err => console.log(err));
     }
   
