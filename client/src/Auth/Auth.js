@@ -37,11 +37,20 @@ export default class Auth {
   }
 
   setSession(authResult) {
+    // this grabs the user id we'll need, and stores it in a local session
+    this.auth0.client.userInfo(authResult.accessToken, function(err, user) {
+      localStorage.setItem('user', user.sub );
+      console.log(localStorage.getItem('user'));
+    }); 
     // Set the time that the access token will expire at
     let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('expires_at', expiresAt);    
+    localStorage.setItem('expires_at', expiresAt);   
+    
+    
+    
+    
     // navigate to the home route
     history.replace('/home');
   }
@@ -51,6 +60,8 @@ export default class Auth {
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    localStorage.removeItem('user');
+
     // navigate to the home route
     history.replace('/home');
   }
