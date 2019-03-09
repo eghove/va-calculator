@@ -19,23 +19,23 @@ function AboutPage() {
                 <br/>
                 <div className = "row">
                     <Grid item xs={4}>Eric Hove</Grid>
-                    <Grid item xs={4}><a target="_blank" href = "https://github.com/eghove">GitHub</a></Grid>
-                    <Grid item xs={4}><a target="_blank" href = "https://eghove.github.io/">Portfolio</a></Grid>
+                    <Grid item xs={4}><a target="_blank" rel="noopener noreferrer" href = "https://github.com/eghove">GitHub </a></Grid>
+                    <Grid item xs={4}><a target="_blank" rel="noopener noreferrer" href = "https://eghove.github.io/">Portfolio</a></Grid>
                 </div>
                 <div className = "row">
                     <Grid item xs={4}>Kevin O'Brien</Grid>
-                    <Grid item xs={4}><a target="_blank" href = "https://github.com/kobbootcamp">GitHub</a></Grid>
-                    <Grid item xs={4}><a target="_blank" href = "https://kobbootcamp.github.io/BlendedPortfolio/">Portfolio</a></Grid>
+                    <Grid item xs={4}><a target="_blank" rel="noopener noreferrer" href = "https://github.com/kobbootcamp">GitHub</a></Grid>
+                    <Grid item xs={4}><a target="_blank" rel="noopener noreferrer" href = "https://kobbootcamp.github.io/BlendedPortfolio/">Portfolio</a></Grid>
                 </div>
                 <div className = "row">
                     <Grid item xs={4}>Mark SperleWeiler</Grid>
-                    <Grid item xs={4}><a target="_blank" href = "https://github.com/mdsw81">GitHub</a></Grid>
-                    <Grid item xs={4}><a target="_blank" href = "https://mdsw81.github.io/Portfolio/">Portfolio</a></Grid>
+                    <Grid item xs={4}><a target="_blank" rel="noopener noreferrer" href = "https://github.com/mdsw81">GitHub</a></Grid>
+                    <Grid item xs={4}><a target="_blank" rel="noopener noreferrer" href = "https://mdsw81.github.io/Portfolio/">Portfolio</a></Grid>
                 </div>
                 <div className = "row">
                     <Grid item xs={4}>Spencer Caretta</Grid>
-                    <Grid item xs={4}><a target="_blank" href = "https://github.com/SpencerCaretta">GitHub</a></Grid>
-                    <Grid item xs={4}><a target="_blank" href = "https://spencercaretta.github.io/Portfolio-Template/">Portfolio</a></Grid>
+                    <Grid item xs={4}><a target="_blank" rel="noopener noreferrer" href = "https://github.com/SpencerCaretta">GitHub</a></Grid>
+                    <Grid item xs={4}><a target="_blank" rel="noopener noreferrer" href = "https://spencercaretta.github.io/Portfolio-Template/">Portfolio</a></Grid>
                 </div>
               </Grid>
 
