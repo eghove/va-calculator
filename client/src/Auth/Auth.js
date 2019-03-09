@@ -40,7 +40,6 @@ export default class Auth {
     // this grabs the user id we'll need, and stores it in a local session
     this.auth0.client.userInfo(authResult.accessToken, function(err, user) {
       localStorage.setItem('user', user.sub );
-      console.log(localStorage.getItem('user'));
     }); 
     // Set the time that the access token will expire at
     let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());

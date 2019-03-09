@@ -62,7 +62,9 @@ import "../Survey/survey.css"
       rates: '',
       incomeArray: [0],
       expensesArray: [0],
-      monthlyRate: 'None'
+      monthlyRate: 'None',
+      // pull in the user information 
+      user: localStorage.getItem('user')
     };
   
     componentDidMount() {
@@ -173,7 +175,8 @@ import "../Survey/survey.css"
             depOthExp2: this.state.depOtherEx2,
             effectiveDate: this.state.calcDate,
             applyingAs: this.state.as
-          })
+          });
+          
         })
         .catch(err => console.log(err));
     }
