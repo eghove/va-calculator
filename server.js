@@ -6,6 +6,8 @@ const app = express();
 const mongoose = require("mongoose");
 // pull in the estimator route
 const estimatorRoute = require("./routes/apiRoutes/estimatorAPI");
+// pull is the users route
+const usersRoute = require("./routes/apiRoutes/userAPI");
 
 
 
@@ -20,6 +22,8 @@ if (process.env.NODE_ENV === "production") {
 // Define routes here
 // the Estimator API route
 app.use("/api/estimate", estimatorRoute);
+// the Users API route
+app.use("/api/users", usersRoute);
 
 
 // Connect to the Mongo DB

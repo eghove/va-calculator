@@ -70,6 +70,7 @@ import "../Survey/survey.css"
     componentDidMount() {
       this.setState({
         labelWidth: ReactDOM.findDOMNode(this.InputLabelRef).offsetWidth,
+        user: localStorage.getItem('user')
       });
     }
   
