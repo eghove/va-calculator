@@ -6,18 +6,18 @@ var style = {
   backgroundColor: "#ffffff",
   // borderTop: "1px solid #E7E7E7",
   textAlign: "center",
-  padding: "20px",
+  padding: "0px",
   position: "fixed",
   left: "0",
   bottom: "0",
-  height: "100px",
+  // height: "100px",
   width: "100%",
 }
 
 var phantom = {
 display: 'block',
-padding: '20px',
-height: '60px',
+padding: '2px',
+height: '6px',
 width: '100%',
 }
 
