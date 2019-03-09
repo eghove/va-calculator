@@ -5,7 +5,7 @@ const router = require("express").Router();
 const userController = require("../../controllers/userController");
 
 // matches with "api/user"
-router.route("/")
+router.route("/create")
   .post(userController.createUser);
 // export the router
 module.exports = router;

@@ -72,6 +72,7 @@ import "../Survey/survey.css"
         labelWidth: ReactDOM.findDOMNode(this.InputLabelRef).offsetWidth,
         user: localStorage.getItem('user')
       });
+      API.createUser( {userID: this.state.user})
     }
   
     handleChange = event => {

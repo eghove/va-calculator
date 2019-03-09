@@ -8,7 +8,7 @@ const usersSchema = new Schema({
     trim: true,
     required: true,
     unique: true,
-    required: "Login is required."
+    required: "Login is required to save information."
   },
 
   userCreated: {
