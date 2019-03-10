@@ -11,7 +11,7 @@ router.route("/:effectiveDate/:claimantType")
   .get(estimatorController.findRate);
 
 // matches with "api/estimate/store-estimate"
-router.route("/store-estimate")
+router.route("/store-estimate/:id")
   .post(estimatorController.storeEstimates);
 // export the router
 module.exports = router;

@@ -8,8 +8,12 @@ export default {
   },
 
   // function that POSTS the survey/?rre responses to the server
-  postSurveyData: function(surveyData) {
-    return axios.post("api/estimate/store-estimate", surveyData)
+  postSurveyData: function(address, surveyData) {
+    return axios.post("api/estimate/store-estimate/" + address + "", surveyData)
+  },
+
+  createUser: function(userData) {
+    return axios.post("api/users/create", userData)
   }
 }
 

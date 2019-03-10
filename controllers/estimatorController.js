@@ -19,6 +19,13 @@ module.exports = {
   storeEstimates: function(req, res) {
     db.Estimates
       .create(req.body)
+      .then(function(dbEstimates) {
+        return db.Users.findOneAndUpdate( 
+          { userID: req.params.id },
+          { $push: { estimates: dbEstimates._id } },
+          { new: true } 
+          )
+      })
       .then(dbResults => res.json(dbResults))
       .catch(err => res.status(422).json(err));
   }

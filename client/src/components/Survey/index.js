@@ -62,13 +62,17 @@ import "../Survey/survey.css"
       rates: '',
       incomeArray: [0],
       expensesArray: [0],
-      monthlyRate: 'None'
+      monthlyRate: 'None',
+      // pull in the user information 
+      user: localStorage.getItem('user')
     };
   
     componentDidMount() {
       this.setState({
         labelWidth: ReactDOM.findDOMNode(this.InputLabelRef).offsetWidth,
+        user: localStorage.getItem('user')
       });
+      API.createUser( {userID: this.state.user})
     }
   
     handleChange = event => {
@@ -118,8 +122,18 @@ import "../Survey/survey.css"
       return isValid;
     }
 
+    // function to validate there is a value for calc date
+    validateCalcDate = (value) => {
+      if ( typeof(value) !== "string" || value <= 0) {
+        alert("Please select a date value for 'Caclulate my VA Pension estimate from...'")
+      }
+    }
+
     handleCalculateButton = event => {
       event.preventDefault();
+
+      // validating a value has been entered for estimate date
+      this.validateCalcDate(this.state.calcDate);
 
       // get the rates needed for the estimator, store them in state
       API.getRates(this.state.calcDate, this.state.as)
@@ -152,7 +166,7 @@ import "../Survey/survey.css"
         })
         // store all the data entered in the survey/?rre when the user his the calculate button
         .then(() => {
-          API.postSurveyData({
+          API.postSurveyData(this.state.user, {
             additionalBenefits: this.state.ben,
             dependentNumber: this.state.dependents,
             youSSA: this.state.selfSSIn,
@@ -173,7 +187,8 @@ import "../Survey/survey.css"
             depOthExp2: this.state.depOtherEx2,
             effectiveDate: this.state.calcDate,
             applyingAs: this.state.as
-          })
+          });
+          
         })
         .catch(err => console.log(err));
     }
