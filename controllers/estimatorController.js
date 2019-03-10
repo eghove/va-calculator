@@ -22,7 +22,7 @@ module.exports = {
       .then(function(dbEstimates) {
         return db.Users.findOneAndUpdate( 
           { userID: req.params.id },
-          { $push: { estimates: dbEstimates._id } },
+          { estimates: dbEstimates._id },
           { new: true } 
           )
       })
