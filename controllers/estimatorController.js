@@ -22,12 +22,26 @@ module.exports = {
       .then(function(dbEstimates) {
         return db.Users.findOneAndUpdate( 
           { userID: req.params.id },
-          { $push: { estimates: dbEstimates._id } },
+          { estimates: dbEstimates._id },
           { new: true } 
           )
       })
       .then(dbResults => res.json(dbResults))
       .catch(err => res.status(422).json(err));
-  }
-}
+  },
 
+  // method that grabs prior responses from survey/?rre
+  findEstimates: function(req, res) {
+    db.Users
+      .findOne( {userID: req.params.id} )
+      .populate("estimates")
+      .then(function(dbUser) {
+        // If all Users are successfully found, send them back to the client
+        res.json(dbUser);
+      })
+      .catch(function(err) {
+        // If an error occurs, send the error back to the client
+        res.json(err);
+      });
+}
+}

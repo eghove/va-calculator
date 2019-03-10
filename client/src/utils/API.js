@@ -14,6 +14,10 @@ export default {
 
   createUser: function(userData) {
     return axios.post("api/users/create", userData)
+  },
+
+  getEstimates: function(userID) {
+    return axios.get("api/users/get-estimate/" + userID)
   }
 }
 
