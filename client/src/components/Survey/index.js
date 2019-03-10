@@ -156,7 +156,7 @@ import "../Survey/survey.css"
         })
         // store all the data entered in the survey/?rre when the user his the calculate button
         .then(() => {
-          API.postSurveyData({
+          API.postSurveyData(this.state.user, {
             additionalBenefits: this.state.ben,
             dependentNumber: this.state.dependents,
             youSSA: this.state.selfSSIn,
