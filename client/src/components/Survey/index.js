@@ -122,8 +122,18 @@ import "../Survey/survey.css"
       return isValid;
     }
 
+    // function to validate there is a value for calc date
+    validateCalcDate = (value) => {
+      if ( typeof(value) !== "string" || value <= 0) {
+        alert("Please select a date value for 'Caclulate my VA Pension estimate from...'")
+      }
+    }
+
     handleCalculateButton = event => {
       event.preventDefault();
+
+      // validating a value has been entered for estimate date
+      this.validateCalcDate(this.state.calcDate);
 
       // get the rates needed for the estimator, store them in state
       API.getRates(this.state.calcDate, this.state.as)
