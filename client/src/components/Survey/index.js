@@ -23,14 +23,17 @@ import "../Survey/survey.css"
     root: {
       display: 'flex',
       flexWrap: 'wrap',
-      flexGrow: 1
+      flexGrow: 1,
+      [theme.breakpoints.down('sm')]: {
+        // backgroundColor: 'red',
+      }
     },
     formControl: {
       margin: theme.spacing.unit,
       minWidth: 120,
     },
     selectEmpty: {
-      marginTop: theme.spacing.unit * 2,
+      marginTop: theme.spacing.unit,
     },
   });
   
@@ -233,7 +236,7 @@ import "../Survey/survey.css"
  
         <Grid item xs={12} id='surveyTitle' >Survey Questions</Grid>
         
-          <Grid item xs={12}>
+          <Grid item sm ={12} xs={12}>
                 <FormControl className={classes.formControl} fullWidth ={true} >
                   <InputLabel
                   >
@@ -256,7 +259,7 @@ import "../Survey/survey.css"
                 </FormControl>          
           </Grid>  
 
-          <Grid item xs={12}>
+          <Grid item sm = {12} xs={12}>
                 <FormControl className={classes.formControl} fullWidth ={true}>
                   <InputLabel
                     ref={ref => {
@@ -353,9 +356,9 @@ import "../Survey/survey.css"
 
             <Grid container spacing = {24}>
 
-                    <Grid item xs={2}><h4>Monthly Income</h4></Grid>
-                    <Grid item xs={5}>You</Grid>
-                    <Grid item xs={5}>Dependent(s)</Grid>
+                    <Grid item sm={2} xs={12}><h4>Monthly Income</h4></Grid>
+                    <Grid item sm={5} xs={6}>You</Grid>
+                    <Grid item sm={5} xs={6}>Dependent(s)</Grid>
 
 
                     <Grid item xs={2}></Grid>
@@ -543,15 +546,15 @@ import "../Survey/survey.css"
 
 
 
-                    <Grid item xs={2}><h4>Monthly Expenses</h4></Grid>
-                    <Grid item xs={5}>You</Grid>
-                    <Grid item xs={5}>Dependent(s)</Grid>
+                    <Grid item sm={2} xs={12}><h4>Monthly Expenses</h4></Grid>
+                    <Grid item sm ={5} xs={6}>You</Grid>
+                    <Grid item sm={5} xs={6}>Dependent(s)</Grid>
 
 
 
 
-                    <Grid item xs={2}></Grid>
-                    <Grid item xs={5}> 
+                    <Grid item sm ={2} xs={12}></Grid>
+                    <Grid item sm={5}  xs={12}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfMedPartB"
@@ -566,27 +569,31 @@ import "../Survey/survey.css"
                       className={classes.textField}
                       InputLabelProps={{
                         shrink: true,
+                        fullWidth: true
                       }}
                       margin="normal"
                     />
                       </FormControl>                      
                       </Grid>
 
-                      <Grid item xs={5}>
+                      <Grid item sm={5} xs={12}>
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
+                      flexWrap="wrap"
                         id="depOtherIncome2"
                         label="Medicare Part B (Dependents)"
                         value={this.state.depMedPartBEx}
                         onChange={this.handleChange}
                         InputProps ={{
                           name: 'depMedPartBEx',
+                          margin: 'dense',
                           startAdornment: <InputAdornment position="start">$</InputAdornment>
                         }}
                         type="number"
                         className={classes.textField}
                         InputLabelProps={{
                           shrink: true,
+                          fullWidth: true
                         }}
                         margin="normal"
                       />
@@ -594,8 +601,8 @@ import "../Survey/survey.css"
                         </Grid>
 
 
-                    <Grid item xs={2}></Grid>
-                    <Grid item xs={5}> 
+                    <Grid item sam={2} xs={12}></Grid>
+                    <Grid item sm={5} xs={12}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfPrivateMedIns"
@@ -616,9 +623,10 @@ import "../Survey/survey.css"
                       </FormControl>
                       </Grid>
 
-                      <Grid item xs={5}>
+                      <Grid item sm = {5} xs={12}>
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
+                      
                         id="depPrivateMedIns"
                         label="Private Medical Insurance (Dependents)"
                         value={this.state.depPrivMedIns}
@@ -631,15 +639,17 @@ import "../Survey/survey.css"
                         className={classes.textField}
                         InputLabelProps={{
                           shrink: true,
+                          margin: 'dense'
                         }}
-                        margin="normal"
+                        margin="wide"
+    
                       />
                           </FormControl>
                         </Grid>
 
 
-                    <Grid item xs={2}></Grid>
-                    <Grid item xs={5}> 
+                    <Grid item sm={2} xs={12}></Grid>
+                    <Grid item sm ={5} xs={12}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfOtherExpense1"
@@ -660,7 +670,7 @@ import "../Survey/survey.css"
                       </FormControl>
                       </Grid>
 
-                      <Grid item xs={5}>
+                      <Grid item sm={5} xs={12}>
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="selfOtherExpense1"
@@ -682,8 +692,8 @@ import "../Survey/survey.css"
                         </Grid>
 
 
-                    <Grid item xs={2}></Grid>
-                    <Grid item xs={5}> 
+                    <Grid item sm={2} xs={12}></Grid>
+                    <Grid item sm={5} xs={12}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfOtherExpense2"
@@ -704,7 +714,7 @@ import "../Survey/survey.css"
                       </FormControl>
                       </Grid>
 
-                      <Grid item xs={5}>
+                      <Grid item sm={ 5} xs={12}>
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="selfOtherExpense2"
@@ -725,15 +735,15 @@ import "../Survey/survey.css"
                         </FormControl>
                         </Grid>
 
-                        <Grid item xs={5}></Grid>
-                        <Grid item xs={2}>
+                        <Grid item sm={5} xs={4}></Grid>
+                        <Grid item sm={2} xs={4}>
                           <label htmlFor="outlined-button-file">
                           <Button variant="outlined" component="span" size='medium' className={classes.button} onClick={(event) => { this.handleCalculateButton(event)}}>
                           Calculate
                           </Button>
                           </label>
                         </Grid>
-                        <Grid item xs={5}></Grid>
+                        <Grid item sm={2} xs={4}></Grid>
                         
             </Grid>
 
