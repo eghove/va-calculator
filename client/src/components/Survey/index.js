@@ -94,7 +94,7 @@ import "../Survey/survey.css"
               });
             }
           })
-          .catch(() => console.log("There was an error."))
+          .catch(() => console.log("There was no prior data."))
       }
     }
 
