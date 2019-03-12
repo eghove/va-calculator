@@ -5,11 +5,13 @@ import QuestionnairePage from "./pages/QuestionnairePage";
 import ResultsPage from "./pages/ResultsPage";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
+import SimpleMenu from "./components/SimpleMenu";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
+import Hidden from '@material-ui/core/Hidden';
 import "./nav.css";
 // import Nav from "./components/Nav";
 // import { Button, Navbar, NavItem, NavLink, NavbarBrand } from 'reactstrap';
@@ -38,14 +40,19 @@ class App extends Component {
       <Router>
         <div>
           <AppBar position="static">
+            <Hidden smDown>
+              <SimpleMenu/>
+            </Hidden>
             <Toolbar>
-              <IconButton className="menuButton" href = "/" color="inherit" aria-label="Menu">VA Pension Estimator
-              </IconButton>
-              <Typography variant="h6" color="inherit" className="grow">
-              {/* <Button color="inherit"   href = "/">About</Button> */}
-              <Button color="inherit"   href = "/questions">Begin Questionnaire</Button>
-              <Button color="inherit" href = "/about">About the Team</Button>
-              </Typography>
+              <Hidden smUp>
+                <IconButton className="menuButton" href = "/" color="inherit" aria-label="Menu">VA Pension Estimator
+                </IconButton>
+                <Typography variant="h6" color="inherit" className="grow">
+                {/* <Button color="inherit"   href = "/">About</Button> */}
+                <Button color="inherit"   href = "/questions">Begin Questionnaire</Button>
+                <Button color="inherit" href = "/about">About the Team</Button>
+                </Typography>
+              </Hidden>
                 {
                   !isAuthenticated() && (
                     <Button color = "inherit"
