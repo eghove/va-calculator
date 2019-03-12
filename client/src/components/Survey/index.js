@@ -564,7 +564,7 @@ import "../Survey/survey.css"
 
 
 
-                    <Grid item xs={2}><h4>Monthly Expenses</h4></Grid>
+                    <Grid item sm={2} xs={12}><h4>Monthly Expenses</h4></Grid>
                     <Hidden smDown>
                       <Grid item xs={5}>You</Grid>
                     </Hidden>
@@ -576,7 +576,7 @@ import "../Survey/survey.css"
                       <Grid item xs={2}></Grid>
                     </Hidden>
 
-                    <Grid item xs={5}> 
+                    <Grid item sm={5} xs={12}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfMedPartB"
