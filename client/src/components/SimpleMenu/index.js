@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import "../SimpleMenu/SimpleMenu.css";
+// import MenuItem from '@material-ui/core/MenuItem';
 
 class SimpleMenu extends React.Component {
   state = {
@@ -25,8 +26,9 @@ class SimpleMenu extends React.Component {
           aria-owns={anchorEl ? 'simple-menu' : undefined}
           aria-haspopup="true"
           onClick={this.handleClick}
+          style={{color: 'white'}}
         >
-          Open Menu
+          Menu
         </Button>
         <Menu
           id="simple-menu"
@@ -34,9 +36,9 @@ class SimpleMenu extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          <MenuItem onClick={this.handleClose} href="/">VA Pension Estimator</MenuItem>
-          <MenuItem onClick={this.handleClose} href="/questions">Begin Questionnaire</MenuItem>
-          <MenuItem onClick={this.handleClose} href="/about">About the Team</MenuItem>
+          <Button color="inherit" id="buttonText" onClick={this.handleClose} href="/">VA Pension Estimator</Button>
+          <Button color="inherit" id="buttonText" onClick={this.handleClose} href="/questions">Begin Questionnaire</Button>
+          <Button color="inherit" id="buttonText" onClick={this.handleClose} href="/about">About the Team</Button>
         </Menu>
       </div>
     );

@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import SimpleMenu from "./components/SimpleMenu";
 import AppBar from '@material-ui/core/AppBar';
+import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
@@ -40,19 +41,50 @@ class App extends Component {
       <Router>
         <div>
           <AppBar position="static">
-            <Hidden smDown>
-              <SimpleMenu/>
+            <Hidden smUp>
+              <Grid container spacing={8} justify="space-between">
+                <Grid item xs={1}>
+                  <SimpleMenu/>
+                </Grid>
+                <Grid item xs={1}>
+                  {
+                    !isAuthenticated() && (
+                      <Button color = "inherit"
+                        id="qsLoginBtn"
+                        bsstyle="primary"
+                        className="btn-margin"
+                        onClick={this.login.bind(this)}
+                      >
+                        Log In
+                        </Button>
+                    )
+                  }
+
+                  {
+                    isAuthenticated() && (
+                      <Button color = "inherit"
+                        id="qsLogoutBtn"
+                        bsstyle="primary"
+                        className="btn-margin"
+                        onClick={this.logout.bind(this)}
+                      >
+                        Log Out
+                        </Button>
+                    )
+                  }
+                </Grid>
+              </Grid>
             </Hidden>
             <Toolbar>
-              <Hidden smUp>
+              <Hidden xsDown>
+              <Grid container spacing = {12} justify="space-between">
+              <Grid item xs={10}>
                 <IconButton className="menuButton" href = "/" color="inherit" aria-label="Menu">VA Pension Estimator
                 </IconButton>
-                <Typography variant="h6" color="inherit" className="grow">
-                {/* <Button color="inherit"   href = "/">About</Button> */}
-                <Button color="inherit"   href = "/questions">Begin Questionnaire</Button>
+                <Button color="inherit" href = "/questions">Begin Questionnaire</Button>
                 <Button color="inherit" href = "/about">About the Team</Button>
-                </Typography>
-              </Hidden>
+              </Grid>
+              <Grid item xs={2}>
                 {
                   !isAuthenticated() && (
                     <Button color = "inherit"
@@ -78,6 +110,37 @@ class App extends Component {
                       </Button>
                   )
                 }
+              </Grid>
+              </Grid>
+              </Hidden>
+{/* 
+              <Grid item xs={1}>
+                {
+                  !isAuthenticated() && (
+                    <Button color = "inherit"
+                      id="qsLoginBtn"
+                      bsstyle="primary"
+                      className="btn-margin"
+                      onClick={this.login.bind(this)}
+                    >
+                      Log In
+                      </Button>
+                  )
+                }
+
+                {
+                  isAuthenticated() && (
+                    <Button color = "inherit"
+                      id="qsLogoutBtn"
+                      bsstyle="primary"
+                      className="btn-margin"
+                      onClick={this.logout.bind(this)}
+                    >
+                      Log Out
+                      </Button>
+                  )
+                }
+              </Grid> */}
               </Toolbar>
             </AppBar>
           <Switch>
