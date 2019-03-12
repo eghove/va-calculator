@@ -11,6 +11,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import Hidden from '@material-ui/core/Hidden';
 // pull in estimator API call
 import API from '../../utils/API';
 // pull in estimator logic
@@ -353,13 +354,18 @@ import "../Survey/survey.css"
 
             <Grid container spacing = {24}>
 
-                    <Grid item xs={2}><h4>Monthly Income</h4></Grid>
-                    <Grid item xs={5}>You</Grid>
-                    <Grid item xs={5}>Dependent(s)</Grid>
+                    <Grid item sm={2} xs={12}><h4>Monthly Income</h4></Grid>
+                    <Hidden smDown>
+                      <Grid item sm={5} xs={6}>You</Grid>
+                    </Hidden>
+                    <Hidden smDown>
+                      <Grid item sm={5} xs={6}>Dependent(s)</Grid>
+                    </Hidden>  
 
 
-                    <Grid item xs={2}></Grid>
-                    <Grid item xs={5}>
+
+                    <Grid item sm={2} xs={12}></Grid>
+                    <Grid item sm={5} xs={12}>
                           <FormControl className={classes.formControl} fullWidth ={true}>
                           <TextField
                             id="SSIncome"
@@ -380,7 +386,7 @@ import "../Survey/survey.css"
                             </FormControl>
                       </Grid>
     
-                    <Grid item xs={5}>
+                    <Grid item sm={5} xs={12}>
                             <FormControl className={classes.formControl} fullWidth ={true}>
                             <TextField
                               id="depSSIncome"
@@ -403,9 +409,12 @@ import "../Survey/survey.css"
                     </Grid>
 
 
+                    <Hidden smDown>
+                      <Grid item sm={2} xs={12}></Grid>  
+                    </Hidden>
 
-                    <Grid item xs={2}></Grid>  
-                    <Grid item xs={5}>
+
+                    <Grid item sm={5} xs={12}>
                             <FormControl className={classes.formControl} fullWidth ={true}>
                             <TextField
                               id="selfRetireIncome"
@@ -426,7 +435,7 @@ import "../Survey/survey.css"
                     </FormControl>
                       </Grid>
     
-                    <Grid item xs={5}>
+                    <Grid item sm={5} xs={12}>
                             <FormControl className={classes.formControl} fullWidth ={true}>
                           <TextField
                             id="depnRetireIncome"
@@ -447,9 +456,13 @@ import "../Survey/survey.css"
                           </FormControl>
                     </Grid>     
 
+                    <Hidden smDown>
+                      <Grid item sm={2} xs={12}></Grid>
+                    </Hidden>
 
-                    <Grid item xs={2}></Grid>
-                    <Grid item xs={5}> 
+
+
+                    <Grid item sm={5} xs={12}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfOtherIncome1"
@@ -470,7 +483,7 @@ import "../Survey/survey.css"
                       </FormControl>
                       </Grid>
 
-                      <Grid item xs={5}>
+                      <Grid item sm={5} xs={12}>
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="depOtherIncome1"
@@ -492,9 +505,12 @@ import "../Survey/survey.css"
                         </Grid>
             
 
+                    <Hidden smDown>
+                      <Grid item sm={2} xs={12}></Grid>
+                    </Hidden>
 
-                      <Grid item xs={2}></Grid>
-                    <Grid item xs={5}> 
+
+                    <Grid item sm={5} xs={12}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfOtherIncome2"
@@ -515,7 +531,7 @@ import "../Survey/survey.css"
                       </FormControl>
                       </Grid>
 
-                      <Grid item xs={5}>
+                      <Grid item sm={5} xs={12}>
                       <FormControl className={classes.formControl} fullWidth ={true}>
                       <TextField
                         id="depOtherIncome2"
@@ -544,13 +560,17 @@ import "../Survey/survey.css"
 
 
                     <Grid item xs={2}><h4>Monthly Expenses</h4></Grid>
-                    <Grid item xs={5}>You</Grid>
-                    <Grid item xs={5}>Dependent(s)</Grid>
+                    <Hidden smDown>
+                      <Grid item xs={5}>You</Grid>
+                    </Hidden>
+                    <Hidden smDown>
+                      <Grid item xs={5}>Dependent(s)</Grid>
+                    </Hidden>
 
+                    <Hidden smDown>
+                      <Grid item xs={2}></Grid>
+                    </Hidden>
 
-
-
-                    <Grid item xs={2}></Grid>
                     <Grid item xs={5}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
@@ -593,8 +613,10 @@ import "../Survey/survey.css"
                         </FormControl>
                         </Grid>
 
+                    <Hidden smDown>
+                      <Grid item xs={2}></Grid>           
+                    </Hidden>
 
-                    <Grid item xs={2}></Grid>
                     <Grid item xs={5}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
@@ -637,8 +659,10 @@ import "../Survey/survey.css"
                           </FormControl>
                         </Grid>
 
+                    <Hidden smDown>
+                      <Grid item xs={2}></Grid>
+                    </Hidden>
 
-                    <Grid item xs={2}></Grid>
                     <Grid item xs={5}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
@@ -681,8 +705,11 @@ import "../Survey/survey.css"
                         </FormControl>
                         </Grid>
 
+                    <Hidden smDown>
+                      <Grid item xs={2}></Grid>
+                    </Hidden>
 
-                    <Grid item xs={2}></Grid>
+
                     <Grid item xs={5}> 
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
