@@ -624,7 +624,11 @@ import "../Survey/survey.css"
                       <Grid item xs={2}></Grid>           
                     </Hidden>
 
+<<<<<<< HEAD
                     <Grid item sm={5} xs={12}> 
+=======
+                    <Grid item xs={5}> 
+>>>>>>> fa1ada8581c9aeb539009e8139687ace84ec6880
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfPrivateMedIns"
@@ -673,7 +677,11 @@ import "../Survey/survey.css"
                       <Grid item xs={2}></Grid>
                     </Hidden>
 
+<<<<<<< HEAD
                     <Grid item sm ={5} xs={12}> 
+=======
+                    <Grid item xs={5}> 
+>>>>>>> fa1ada8581c9aeb539009e8139687ace84ec6880
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfOtherExpense1"
@@ -718,8 +726,14 @@ import "../Survey/survey.css"
                     <Hidden smDown>
                       <Grid item xs={2}></Grid>
                     </Hidden>
+<<<<<<< HEAD
 
                     <Grid item sm={5} xs={12}> 
+=======
+
+
+                    <Grid item xs={5}> 
+>>>>>>> fa1ada8581c9aeb539009e8139687ace84ec6880
                     <FormControl className={classes.formControl} fullWidth ={true}>
                     <TextField
                       id="selfOtherExpense2"
