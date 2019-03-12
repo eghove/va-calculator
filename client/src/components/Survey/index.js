@@ -68,32 +68,34 @@ import "../Survey/survey.css"
     };
   
     getEstimatesAndAssign = () => {
-      API.getEstimates(this.state.user)
-        .then( (res) => {
-          // there a non-crash error around here that I want to fix
-          if (res.data.estimates) {
-          let priorData = res.data.estimates[0];
-           this.setState( { 
-             selfSSIn: priorData.youSSA,
-             selfRetireIn: priorData.youRtmt,
-             selfOtherIn1: priorData.youOthInc1,
-             selfOtherIn2: priorData.youOthInc2,
-             depSSIn: priorData.depSSA,
-             depRetireIn: priorData.depRtmt,
-             depOtherIn1: priorData.depOthInc1,
-             depOtherIn2: priorData.depOthInc2,
-             selfMedPartBEx: priorData.youMedB,
-             selfPrivMedIns: priorData.youPMI,
-             selfOtherEx1: priorData.youOthExp1,
-             selfOtherEx2: priorData.youOthExp2,
-             depMedPartBEx: priorData.depMedB,
-             depPrivMedIns: priorData.depPMI,
-             depOtherEx1: priorData.depOthExp1,
-             depOtherEx2: priorData.depOthExp2
-            } );
-          }
-        })
-        .catch( () => console.log("There was an error.") )
+      if (this.state.user) {
+        API.getEstimates(this.state.user)
+          .then((res) => {
+            // there a non-crash error around here that I want to fix
+            if (res.data.estimates) {
+              let priorData = res.data.estimates[0];
+              this.setState({
+                selfSSIn: priorData.youSSA,
+                selfRetireIn: priorData.youRtmt,
+                selfOtherIn1: priorData.youOthInc1,
+                selfOtherIn2: priorData.youOthInc2,
+                depSSIn: priorData.depSSA,
+                depRetireIn: priorData.depRtmt,
+                depOtherIn1: priorData.depOthInc1,
+                depOtherIn2: priorData.depOthInc2,
+                selfMedPartBEx: priorData.youMedB,
+                selfPrivMedIns: priorData.youPMI,
+                selfOtherEx1: priorData.youOthExp1,
+                selfOtherEx2: priorData.youOthExp2,
+                depMedPartBEx: priorData.depMedB,
+                depPrivMedIns: priorData.depPMI,
+                depOtherEx1: priorData.depOthExp1,
+                depOtherEx2: priorData.depOthExp2
+              });
+            }
+          })
+          .catch(() => console.log("There was an error."))
+      }
     }
 
     componentDidMount() {
