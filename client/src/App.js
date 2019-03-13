@@ -35,8 +35,7 @@ class App extends Component {
 
   render () {
     const { isAuthenticated } = this.props.auth;
-    // console.log(localStorage.getItem('access_token'));
-    // console.log(localStorage.getItem('id_token'));
+    
     return (
       <Router>
         <div>
@@ -113,34 +112,7 @@ class App extends Component {
               </Grid>
               </Grid>
               </Hidden>
-{/* 
-              <Grid item xs={1}>
-                {
-                  !isAuthenticated() && (
-                    <Button color = "inherit"
-                      id="qsLoginBtn"
-                      bsstyle="primary"
-                      className="btn-margin"
-                      onClick={this.login.bind(this)}
-                    >
-                      Log In
-                      </Button>
-                  )
-                }
 
-                {
-                  isAuthenticated() && (
-                    <Button color = "inherit"
-                      id="qsLogoutBtn"
-                      bsstyle="primary"
-                      className="btn-margin"
-                      onClick={this.logout.bind(this)}
-                    >
-                      Log Out
-                      </Button>
-                  )
-                }
-              </Grid> */}
               </Toolbar>
             </AppBar>
           <Switch>
