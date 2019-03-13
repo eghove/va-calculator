@@ -608,7 +608,7 @@ import "../Survey/survey.css"
                         onChange={this.handleChange}
                         InputProps ={{
                           name: 'depMedPartBEx',
-                          margin: 'dense',
+                          margin: 'normal',
                           startAdornment: <InputAdornment position="start">$</InputAdornment>
                         }}
                         type="number"
@@ -665,7 +665,7 @@ import "../Survey/survey.css"
                           shrink: true,
                           margin: 'dense'
                         }}
-                        margin="wide"
+                        margin="normal"
     
                       />
                           </FormControl>
