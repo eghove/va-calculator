@@ -9,16 +9,11 @@ import SimpleMenu from "./components/SimpleMenu";
 import AppBar from '@material-ui/core/AppBar';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
 import "./nav.css";
-// import Nav from "./components/Nav";
-// import { Button, Navbar, NavItem, NavLink, NavbarBrand } from 'reactstrap';
 
-
-// import './App.css';
 
 class App extends Component {
   goTo(route) {
