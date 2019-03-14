@@ -73,7 +73,6 @@ import "../Survey/survey.css"
     };
   
     getEstimatesAndAssign = () => {
-      if (this.state.user) {
         API.getEstimates(this.state.user)
           .then((res) => {
             // there a non-crash error around here that I want to fix
@@ -100,7 +99,6 @@ import "../Survey/survey.css"
             }
           })
           .catch(() => console.log("There was no prior data."))
-      }
     }
 
     componentDidMount() {
