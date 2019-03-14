@@ -9,16 +9,11 @@ import SimpleMenu from "./components/SimpleMenu";
 import AppBar from '@material-ui/core/AppBar';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
 import "./nav.css";
-// import Nav from "./components/Nav";
-// import { Button, Navbar, NavItem, NavLink, NavbarBrand } from 'reactstrap';
 
-
-// import './App.css';
 
 class App extends Component {
   goTo(route) {
@@ -35,8 +30,7 @@ class App extends Component {
 
   render () {
     const { isAuthenticated } = this.props.auth;
-    // console.log(localStorage.getItem('access_token'));
-    // console.log(localStorage.getItem('id_token'));
+    
     return (
       <Router>
         <div>
@@ -113,34 +107,7 @@ class App extends Component {
               </Grid>
               </Grid>
               </Hidden>
-{/* 
-              <Grid item xs={1}>
-                {
-                  !isAuthenticated() && (
-                    <Button color = "inherit"
-                      id="qsLoginBtn"
-                      bsstyle="primary"
-                      className="btn-margin"
-                      onClick={this.login.bind(this)}
-                    >
-                      Log In
-                      </Button>
-                  )
-                }
 
-                {
-                  isAuthenticated() && (
-                    <Button color = "inherit"
-                      id="qsLogoutBtn"
-                      bsstyle="primary"
-                      className="btn-margin"
-                      onClick={this.logout.bind(this)}
-                    >
-                      Log Out
-                      </Button>
-                  )
-                }
-              </Grid> */}
               </Toolbar>
             </AppBar>
           <Switch>
