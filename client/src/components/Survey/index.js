@@ -12,6 +12,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
+import Popover from '../Popover';
 // pull in estimator API call
 import API from '../../utils/API';
 // pull in estimator logic
@@ -72,32 +73,34 @@ import "../Survey/survey.css"
     };
   
     getEstimatesAndAssign = () => {
-      API.getEstimates(this.state.user)
-        .then( (res) => {
-          // there a non-crash error around here that I want to fix
-          if (res.data.estimates) {
-          let priorData = res.data.estimates[0];
-           this.setState( { 
-             selfSSIn: priorData.youSSA,
-             selfRetireIn: priorData.youRtmt,
-             selfOtherIn1: priorData.youOthInc1,
-             selfOtherIn2: priorData.youOthInc2,
-             depSSIn: priorData.depSSA,
-             depRetireIn: priorData.depRtmt,
-             depOtherIn1: priorData.depOthInc1,
-             depOtherIn2: priorData.depOthInc2,
-             selfMedPartBEx: priorData.youMedB,
-             selfPrivMedIns: priorData.youPMI,
-             selfOtherEx1: priorData.youOthExp1,
-             selfOtherEx2: priorData.youOthExp2,
-             depMedPartBEx: priorData.depMedB,
-             depPrivMedIns: priorData.depPMI,
-             depOtherEx1: priorData.depOthExp1,
-             depOtherEx2: priorData.depOthExp2
-            } );
-          }
-        })
-        .catch( () => console.log("There was an error.") )
+      if (this.state.user) {
+        API.getEstimates(this.state.user)
+          .then((res) => {
+            // there a non-crash error around here that I want to fix
+            if (res.data.estimates) {
+              let priorData = res.data.estimates[0];
+              this.setState({
+                selfSSIn: priorData.youSSA,
+                selfRetireIn: priorData.youRtmt,
+                selfOtherIn1: priorData.youOthInc1,
+                selfOtherIn2: priorData.youOthInc2,
+                depSSIn: priorData.depSSA,
+                depRetireIn: priorData.depRtmt,
+                depOtherIn1: priorData.depOthInc1,
+                depOtherIn2: priorData.depOthInc2,
+                selfMedPartBEx: priorData.youMedB,
+                selfPrivMedIns: priorData.youPMI,
+                selfOtherEx1: priorData.youOthExp1,
+                selfOtherEx2: priorData.youOthExp2,
+                depMedPartBEx: priorData.depMedB,
+                depPrivMedIns: priorData.depPMI,
+                depOtherEx1: priorData.depOthExp1,
+                depOtherEx2: priorData.depOthExp2
+              });
+            }
+          })
+          .catch(() => console.log("There was no prior data."))
+      }
     }
 
     componentDidMount() {
@@ -257,7 +260,14 @@ import "../Survey/survey.css"
                     <MenuItem value={"Surviving Spouse"}>Surviving Spouse</MenuItem>
                     <MenuItem value={"Surviving Child"}>Surviving Child</MenuItem>
                   </Select>
-                </FormControl>          
+                </FormControl> 
+                <Popover>
+                  If you are considering applying as a Veteran, you must meet the eligibility requirements described <a target = "_blank" rel = "external noopener noreferrer" href = "https://www.va.gov/pension/eligibility/" >here.</a>
+                    <br />  
+                  If you are considering applying as a Surviving Spouse (of a deceased Veteran) or Surviving Child (of a deceased Veteran), you must meet the eligibility requirements described <a target = "_blank" rel = "external noopener noreferrer" href = "https://www.va.gov/pension/survivors-pension/" >here.</a>
+                    <br />
+                  Click anywhere outside this box to exit this explanation.
+                </Popover>                
           </Grid>  
 
           <Grid item sm = {12} xs={12}>
@@ -285,6 +295,13 @@ import "../Survey/survey.css"
                     <MenuItem value={"Aid and Attendance"}>Aid and Attendance</MenuItem>
                   </Select>
                 </FormControl>
+                <Popover>
+                  There are additional benefits that a Veteran or Surviving Spouse may qualify for if they are housebound or require the aid and attendance of another person. To learn about the criteria for these additional benefits, please click <a target = "_blank" rel = "external noopener noreferrer" href = "https://www.benefits.va.gov/pension/aid_attendance_housebound.asp">here.</a>
+                    <br />  
+                  If you do not intend to apply for these benefits, please select “None” from the dropdown menu.                    
+                    <br />
+                  Click anywhere outside this box to exit this explanation.
+                </Popover>            
           </Grid>
 
           <Grid item xs={12}>
@@ -317,6 +334,11 @@ import "../Survey/survey.css"
                       <MenuItem value={6}>6</MenuItem>
                     </Select>
                   </FormControl>
+                  <Popover>
+                    The number of your dependents (which includes your spouse and any eligible children) could affect potential benefits. To learn more about the criteria for dependents, please click <a target = "_blank" rel = "external noopener noreferrer" href = "https://www.va.gov/disability/add-remove-dependent/">here.</a>
+                      <br />  
+                    Click anywhere outside this box to exit this explanation.
+                  </Popover> 
             </Grid>
 
             <Grid item xs={12}>
@@ -348,6 +370,11 @@ import "../Survey/survey.css"
                   
                     </Select>
                   </FormControl>
+                  <Popover>
+                    To calculate your estimate, please select one of the dates from the dropdown below. For example, if you wanted to estimate potential benefits from 03/01/2018, you would would select “12/01/2017” from the dropdown below. If you wanted to estimate benefits from 01/01/2019, you would select “12/01/2018” from the dropdown below.
+                      <br />  
+                    Click anywhere outside this box to exit this explanation.
+                  </Popover>
             </Grid>
 
             <Grid item xs={8}></Grid>
@@ -357,7 +384,7 @@ import "../Survey/survey.css"
 
             <Grid container spacing = {24}>
 
-                    <Grid item sm={2} xs={12}><h4>Monthly Income</h4></Grid>
+            <Grid item xs={2}><h5>Monthly Income<span title="Please enter each monthly income source separately for you and your dependents (if applicable). If you have more than one dependent, the estimator currently requires that you lump any dependents’ income together." data-toggle="modal" data-target="#myModal"><br></br><i class="far fa-question-circle"></i></span></h5></Grid>
                     <Hidden smDown>
                       <Grid item sm={5} xs={6}>You</Grid>
                     </Hidden>
@@ -562,7 +589,7 @@ import "../Survey/survey.css"
 
 
 
-                    <Grid item sm={2} xs={12}><h4>Monthly Expenses</h4></Grid>
+                    <Grid item xs={2}><h5>Monthly Expenses<span title="Please enter each monthly medical expense source separately for you and your dependents (if applicable). If you have more than one dependent, the estimator currently requires that you lump any dependents’ medical expenses together." data-toggle="popover" data-trigger="hover"><br></br><i class="far fa-question-circle"></i></span></h5></Grid>
                     <Hidden smDown>
                       <Grid item xs={5}>You</Grid>
                     </Hidden>
