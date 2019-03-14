@@ -384,7 +384,7 @@ import "../Survey/survey.css"
 
             <Grid container spacing = {24}>
 
-            <Grid item xs={2}><h5>Monthly Income<span title="Please enter each monthly income source separately for you and your dependents (if applicable). If you have more than one dependent, the estimator currently requires that you lump any dependents’ income together." data-toggle="modal" data-target="#myModal"><br></br><i class="far fa-question-circle"></i></span></h5></Grid>
+            <Grid item sm={2} xs={12}><h4>Monthly Income<span title="Please enter each monthly income source separately for you and your dependents (if applicable). If you have more than one dependent, the estimator currently requires that you lump any dependents’ income together." data-toggle="modal" data-target="#myModal"><br></br><i class="far fa-question-circle"></i></span></h4></Grid>
                     <Hidden smDown>
                       <Grid item sm={5} xs={6}>You</Grid>
                     </Hidden>
@@ -589,7 +589,7 @@ import "../Survey/survey.css"
 
 
 
-                    <Grid item xs={2}><h5>Monthly Expenses<span title="Please enter each monthly medical expense source separately for you and your dependents (if applicable). If you have more than one dependent, the estimator currently requires that you lump any dependents’ medical expenses together." data-toggle="popover" data-trigger="hover"><br></br><i class="far fa-question-circle"></i></span></h5></Grid>
+                    <Grid item sm={2} xs={12}><h4>Monthly Expenses<span title="Please enter each monthly medical expense source separately for you and your dependents (if applicable). If you have more than one dependent, the estimator currently requires that you lump any dependents’ medical expenses together." data-toggle="popover" data-trigger="hover"><br></br><i class="far fa-question-circle"></i></span></h4></Grid>
                     <Hidden smDown>
                       <Grid item xs={5}>You</Grid>
                     </Hidden>
